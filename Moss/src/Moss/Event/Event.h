@@ -29,7 +29,7 @@ namespace Moss {
 
 	enum EventCategory {
 		None = 0,
-		EventCategoryApllication = BIT(0),
+		EventCategoryApplication = BIT(0),
 		EventCategoryInput = BIT(1),
 		EventCategoryKeyboard = BIT(2),
 		EventCategoryMouse = BIT(3),
@@ -83,6 +83,11 @@ namespace Moss {
 		Event& m_Event;
 
 	};
+
+	inline  std::ostream& operator << (std::ostream& os, const Event&  e) {
+		return os << e.ToString();
+	}
+
 
 
 

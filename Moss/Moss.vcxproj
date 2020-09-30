@@ -139,6 +139,8 @@
     <ClInclude Include="src\Moss\Application.h" />
     <ClInclude Include="src\Moss\Core.h" />
     <ClInclude Include="src\Moss\EntryPoint.h" />
+    <ClInclude Include="src\Moss\Event\Event.h" />
+    <ClInclude Include="src\Moss\Event\KeyEvent.h" />
     <ClInclude Include="src\Moss\Log.h" />
     <ClInclude Include="src\Moss\Moss.h" />
   </ItemGroup>
