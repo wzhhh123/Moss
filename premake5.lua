@@ -39,7 +39,7 @@ project "Sandbox"
     filter "system:windows"
         cppdialect "C++17"
         staticruntime "On"
-        systemversion "10.0.17763.0"
+        systemversion "latest"
 
         defines
         {
@@ -77,13 +77,15 @@ project "Moss"
 
     includedirs
     {
-        "%{prj.name}/vendor/spdlog/include"
+        "%{prj.name}/vendor/spdlog/include",
+        "%{prj.name}/src"
+
     }
 
     filter "system:windows"
         cppdialect "C++17"
         staticruntime "On"
-        systemversion "10.0.17763.0"
+        systemversion "latest"
 
         defines
         {

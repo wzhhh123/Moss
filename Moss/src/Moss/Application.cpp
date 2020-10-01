@@ -1,5 +1,7 @@
 #include "Application.h"
 
+#include "Event/ApplicationEvent.h"
+#include "Log.h"
 
 
 namespace Moss {
@@ -13,6 +15,9 @@ namespace Moss {
 	}
 
 	void Application::Run() {
+		WindowResizeEvent e(1280, 720);
+		MS_TRACE(e);
+
 		while (true) {
 
 		}

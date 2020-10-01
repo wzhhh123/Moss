@@ -5,6 +5,7 @@
 
 #include "Core.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h"
 
 namespace Moss {
 
@@ -31,9 +32,9 @@ namespace Moss {
 #define MS_CORE_FATAL(...) ::Moss::Log::GetCoreLogger()->fatal(__VA_ARGS__)
 
 //Client log macros
-#define MS_CLIENT_ERROR(...) ::Moss::Log::GetClientLogger()->error(__VA_ARGS__)
-#define MS_CLIENT_WARN(...) ::Moss::Log::GetClientLogger()->warn(__VA_ARGS__)
-#define MS_CLIENT_INFO(...) ::Moss::Log::GetClientLogger()->info(__VA_ARGS__)
-#define MS_CLIENT_TRACE(...) ::Moss::Log::GetClientLogger()->trace(__VA_ARGS__)
-#define MS_CLIENT_FATAL(...) ::Moss::Log::GetClientLogger()->fatal(__VA_ARGS__)
+#define MS_ERROR(...) ::Moss::Log::GetClientLogger()->error(__VA_ARGS__)
+#define MS_WARN(...) ::Moss::Log::GetClientLogger()->warn(__VA_ARGS__)
+#define MS_INFO(...) ::Moss::Log::GetClientLogger()->info(__VA_ARGS__)
+#define MS_TRACE(...) ::Moss::Log::GetClientLogger()->trace(__VA_ARGS__)
+#define MS_FATAL(...) ::Moss::Log::GetClientLogger()->fatal(__VA_ARGS__)
 

@@ -9,7 +9,8 @@ namespace Moss {
 	class MOSS_API KeyEvent : public Event {
 	public:
 		inline int GetKeyCode() const { return m_KeyCode; }
-		(EventCategoryKeyboard | EventCategoryInput);
+		
+		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
 
 	protected:
 		KeyEvent(int keycode) : m_KeyCode(keycode) { }
