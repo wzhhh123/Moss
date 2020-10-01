@@ -3,10 +3,6 @@
 
 #include "../Core.h"
 
-#include <string>
-#include <functional>
-
-
 namespace Moss {
 
 	enum class EventType {

@@ -10,7 +10,7 @@ int main(int argc, char** argv)
 
 	Moss::Log::Init();
 	MS_CORE_WARN("Initialized Log!");
-	MS_CLIENT_INFO("hello!");
+	MS_INFO("hello!");
 
 	auto app = Moss::CreateApplication();
 	app->Run();

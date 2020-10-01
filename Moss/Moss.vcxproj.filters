@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Moss">
+      <UniqueIdentifier>{2730897C-1367-8A0D-BC53-7010A869060F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Moss\Event">
+      <UniqueIdentifier>{B8F29117-A4AA-D364-0DB2-ACC0F9886E55}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Moss\Application.h">
+      <Filter>Moss</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\Core.h">
+      <Filter>Moss</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\EntryPoint.h">
+      <Filter>Moss</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\Event\ApplicationEvent.h">
+      <Filter>Moss\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\Event\Event.h">
+      <Filter>Moss\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\Event\KeyEvent.h">
+      <Filter>Moss\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\Event\MouseEvent.h">
+      <Filter>Moss\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\Log.h">
+      <Filter>Moss</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\Moss.h">
+      <Filter>Moss</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\Window.h">
+      <Filter>Moss</Filter>
+    </ClInclude>
+    <ClInclude Include="src\mspch.h" />
+    <ClInclude Include="Platform\Windows\WindowsWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Moss\Application.cpp">
+      <Filter>Moss</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Moss\Log.cpp">
+      <Filter>Moss</Filter>
+    </ClCompile>
+    <ClCompile Include="src\mspch.cpp" />
+    <ClCompile Include="Platform\Windows\WindowsWindow.cpp" />
+  </ItemGroup>
+</Project>

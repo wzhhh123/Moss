@@ -10,6 +10,11 @@ workspace "Moss"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Moss/vendor/GLFW/include"
+
+include "Moss/vendor/GLFW"  --类似c++的头文件引用，引用glfw下面的premake5文件
+
 project "Sandbox"
 
     location "Sandbox"
@@ -69,18 +74,27 @@ project "Moss"
     targetdir ("bin/"..outputdir.."/%{prj.name}")
     objdir ("bin-int/"..outputdir.."/%{prj.name}")
 
+	pchheader "mspch.h"
+	pchsource "Moss/src/mspch.cpp"
+
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
     }
 
     includedirs
     {
         "%{prj.name}/vendor/spdlog/include",
-        "%{prj.name}/src"
-
+        "%{prj.name}/src",
+		"%{IncludeDir.GLFW}"
     }
+
+	links
+	{
+		"GLFW",   --include了glfw的premake5，里面有个project叫GLFW
+		"opengl32.lib"
+	}
 
     filter "system:windows"
         cppdialect "C++17"

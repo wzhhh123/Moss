@@ -1,9 +1,6 @@
 #pragma once
 
-
 #include "Event.h"
-#include  <sstream>
-
 
 namespace Moss {
 
@@ -52,7 +49,7 @@ namespace Moss {
 
 	class MOSS_API AppRenderEvent : public Event {
 	public:
-		AppRenderEvent();
+		AppRenderEvent() {}
 		EVENT_CLASS_TYPE(AppRender)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 	};

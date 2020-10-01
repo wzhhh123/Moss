@@ -1,8 +1,6 @@
 #pragma once
 
 
-#include <memory.h>
-
 #include "Core.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/fmt/ostr.h"
@@ -30,6 +28,7 @@ namespace Moss {
 #define MS_CORE_INFO(...) ::Moss::Log::GetCoreLogger()->info(__VA_ARGS__)
 #define MS_CORE_TRACE(...) ::Moss::Log::GetCoreLogger()->trace(__VA_ARGS__)
 #define MS_CORE_FATAL(...) ::Moss::Log::GetCoreLogger()->fatal(__VA_ARGS__)
+//#define MS_CORE_ASSERT(...) ::Moss::Log::GetCoreLogger()->assert(__VA_ARGS__)
 
 //Client log macros
 #define MS_ERROR(...) ::Moss::Log::GetClientLogger()->error(__VA_ARGS__)
