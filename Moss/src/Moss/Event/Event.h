@@ -61,7 +61,7 @@ namespace Moss {
 
 	class EventDispatch {
 		template<typename T>
-		using EventFn = std::function<bool(T*)>;
+		using EventFn = std::function<bool(T&)>;
 	public: 
 		EventDispatch(Event& event) : m_Event(event) {
 		}
