@@ -81,7 +81,7 @@
       <PrecompiledHeaderFile>mspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MOSS_PLATFORM_WINDOWS;MOSS_BUILD_DLL;GLFW_INCLUDE_NONE;MO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -104,7 +104,7 @@
       <PrecompiledHeaderFile>mspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MOSS_PLATFORM_WINDOWS;MOSS_BUILD_DLL;GLFW_INCLUDE_NONE;MO_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -127,7 +127,7 @@
       <PrecompiledHeaderFile>mspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>MOSS_PLATFORM_WINDOWS;MOSS_BUILD_DLL;GLFW_INCLUDE_NONE;MO_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\GLAD\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -145,6 +145,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Moss\Application.h" />
     <ClInclude Include="src\Moss\Core.h" />
@@ -153,6 +154,7 @@
     <ClInclude Include="src\Moss\Event\Event.h" />
     <ClInclude Include="src\Moss\Event\KeyEvent.h" />
     <ClInclude Include="src\Moss\Event\MouseEvent.h" />
+    <ClInclude Include="src\Moss\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Moss\Layer.h" />
     <ClInclude Include="src\Moss\LayerStack.h" />
     <ClInclude Include="src\Moss\Log.h" />
@@ -161,8 +163,10 @@
     <ClInclude Include="src\mspch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Moss\Application.cpp" />
+    <ClCompile Include="src\Moss\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Moss\Layer.cpp" />
     <ClCompile Include="src\Moss\LayerStack.cpp" />
     <ClCompile Include="src\Moss\Log.cpp" />
@@ -177,8 +181,11 @@
     <ProjectReference Include="vendor\GLAD\GLAD.vcxproj">
       <Project>{5D4A857C-4981-860D-F26D-6C10DE83020F}</Project>
     </ProjectReference>
+    <ProjectReference Include="vendor\imgui\ImGui.vcxproj">
+      <Project>{C0FF640D-2C14-8DBE-F595-301E616989EF}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project>
+</Project> 

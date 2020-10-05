@@ -4,6 +4,9 @@
     <Filter Include="Platform">
       <UniqueIdentifier>{2AC788B4-1694-E3BF-3FAD-D1672BD9184E}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Platform\OpenGL">
+      <UniqueIdentifier>{1E7D2C1D-8A08-9AE1-9319-1DD6FF23F6E1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Platform\Windows">
       <UniqueIdentifier>{64FBD71A-50F4-F66C-7926-DCF1657ED678}</UniqueIdentifier>
     </Filter>
@@ -16,8 +19,14 @@
     <Filter Include="src\Moss\Event">
       <UniqueIdentifier>{6F8F984E-5B5D-8C54-44F1-FC7A305E68B9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Moss\ImGui">
+      <UniqueIdentifier>{4883DB4E-3451-CF54-1DE5-3F7B0952ABB9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Platform\OpenGL\ImGuiOpenGLRenderer.h">
+      <Filter>Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -42,6 +51,9 @@
     <ClInclude Include="src\Moss\Event\MouseEvent.h">
       <Filter>src\Moss\Event</Filter>
     </ClInclude>
+    <ClInclude Include="src\Moss\ImGui\ImGuiLayer.h">
+      <Filter>src\Moss\ImGui</Filter>
+    </ClInclude>
     <ClInclude Include="src\Moss\Layer.h">
       <Filter>src\Moss</Filter>
     </ClInclude>
@@ -62,11 +74,17 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
+      <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="src\Moss\Application.cpp">
       <Filter>src\Moss</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Moss\ImGui\ImGuiLayer.cpp">
+      <Filter>src\Moss\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Moss\Layer.cpp">
       <Filter>src\Moss</Filter>

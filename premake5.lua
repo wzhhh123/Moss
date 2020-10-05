@@ -13,9 +13,11 @@ outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir = {}
 IncludeDir["GLFW"] = "Moss/vendor/GLFW/include"
 IncludeDir["GLAD"] = "Moss/vendor/GLAD/include"
+IncludeDir["imgui"] = "Moss/vendor/imgui"
 
 include "Moss/vendor/GLFW"  --类似c++的头文件引用，引用glfw下面的premake5文件
 include "Moss/vendor/GLAD" 
+include "Moss/vendor/imgui"
 
 project "Moss"
 
@@ -42,14 +44,16 @@ project "Moss"
         "%{prj.name}/vendor/spdlog/include",
         "%{prj.name}/src",
 		"%{IncludeDir.GLFW}",
-		"%{IncludeDir.GLAD}"
+		"%{IncludeDir.GLAD}",
+		"%{IncludeDir.imgui}",
     }
 
 	links
 	{
 		"GLFW",   --include了glfw的premake5，里面有个project叫GLFW
 		"opengl32.lib",
-		"GLAD"
+		"GLAD",
+		"ImGui",
 	}
 
     filter "system:windows"

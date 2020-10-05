@@ -19,11 +19,14 @@ namespace Moss {
 
 	void LayerStack::PushLayer(Layer* layer) {
 		m_LayerInsert = m_Layers.emplace(m_LayerInsert, layer); //代替insert，可以避免临时变量的产生
+		layer->OnAttach();
 	}
 
 	void LayerStack::PushOverlay(Layer* overlay) {
 		m_Layers.emplace_back(overlay); //在尾部添加一个
+		overlay->OnAttach();
 	}
+
 
 	void LayerStack::PopLayer(Layer* layer) {
 		auto it = std::find(m_Layers.begin(), m_Layers.end(), layer);

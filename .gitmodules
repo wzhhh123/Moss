@@ -4,3 +4,6 @@
 [submodule "Moss/vendor/GLFW"]
 	path = Moss/vendor/GLFW
 	url = https://github.com/TheCherno/glfw
+[submodule "Moss/vendor/imgui"]
+	path = Moss/vendor/imgui
+	url = https://github.com/TheCherno/imgui
