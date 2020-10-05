@@ -20,7 +20,8 @@ namespace Moss {
 		MouseButtonPressed,
 		MouseButtonReleased,
 		MouseMoved,
-		MouseScrolled
+		MouseScrolled,
+		KeyTyped
 	};
 
 	enum EventCategory {
