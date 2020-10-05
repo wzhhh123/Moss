@@ -27,7 +27,7 @@ project "Sandbox"
     files
     {
         "%{prj.name}/src/**.h",
-        "%{prj.name}/src/**.cpp"
+        "%{prj.name}/src/**.cpp",
     }
 
     includedirs
@@ -81,6 +81,8 @@ project "Moss"
     {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
+        "%{prj.name}/Platform/**.h",
+        "%{prj.name}/Platform/**.cpp"
     }
 
     includedirs

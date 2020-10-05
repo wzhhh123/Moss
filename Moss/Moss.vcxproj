@@ -142,6 +142,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Moss\Application.h" />
     <ClInclude Include="src\Moss\Core.h" />
     <ClInclude Include="src\Moss\EntryPoint.h" />
@@ -149,19 +150,20 @@
     <ClInclude Include="src\Moss\Event\Event.h" />
     <ClInclude Include="src\Moss\Event\KeyEvent.h" />
     <ClInclude Include="src\Moss\Event\MouseEvent.h" />
+    <ClInclude Include="src\Moss\Layer.h" />
     <ClInclude Include="src\Moss\Log.h" />
     <ClInclude Include="src\Moss\Moss.h" />
     <ClInclude Include="src\Moss\Window.h" />
     <ClInclude Include="src\mspch.h" />
-    <ClInclude Include="Platform\Windows\WindowsWindow.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Moss\Application.cpp" />
+    <ClCompile Include="src\Moss\Layer.cpp" />
     <ClCompile Include="src\Moss\Log.cpp" />
     <ClCompile Include="src\mspch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="Platform\Windows\WindowsWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
