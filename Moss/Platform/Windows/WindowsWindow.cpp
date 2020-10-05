@@ -3,6 +3,7 @@
 #include "Moss/Event/KeyEvent.h"
 #include "Moss/Event/MouseEvent.h"
 #include "Moss/Event/ApplicationEvent.h"
+#include "glad/glad.h"
 
 namespace Moss {
 
@@ -40,6 +41,8 @@ namespace Moss {
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, props.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		MS_CORE_ASSERT(status, "Failed to initialize Glad!");
 		glfwSetWindowUserPointer(m_Window, &m_Data); //传入这个m_Data，glfw有回调触发的时候会用这个作为参数
 		SetVSync(true);
 
