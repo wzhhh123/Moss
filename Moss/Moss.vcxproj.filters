@@ -45,6 +45,9 @@
     <ClInclude Include="src\Moss\Layer.h">
       <Filter>src\Moss</Filter>
     </ClInclude>
+    <ClInclude Include="src\Moss\LayerStack.h">
+      <Filter>src\Moss</Filter>
+    </ClInclude>
     <ClInclude Include="src\Moss\Log.h">
       <Filter>src\Moss</Filter>
     </ClInclude>
@@ -66,6 +69,9 @@
       <Filter>src\Moss</Filter>
     </ClCompile>
     <ClCompile Include="src\Moss\Layer.cpp">
+      <Filter>src\Moss</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Moss\LayerStack.cpp">
       <Filter>src\Moss</Filter>
     </ClCompile>
     <ClCompile Include="src\Moss\Log.cpp">

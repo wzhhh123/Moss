@@ -5,6 +5,7 @@
 #include "Event/Event.h"
 #include "Window.h"
 #include "Event/ApplicationEvent.h"
+#include "Moss/LayerStack.h"
 
 namespace Moss {
 
@@ -16,10 +17,15 @@ namespace Moss {
 		void Run();
 
 		void OnEvent(Event& e);
-	private:
+
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+
+	private:	
 
 		std::unique_ptr<Window>m_Window;
 		bool m_IsRunning = true;
+		LayerStack m_LayerStack;
 		bool OnWindowClose(WindowCloseEvent& e);
 	};
 

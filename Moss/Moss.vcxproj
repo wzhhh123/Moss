@@ -85,6 +85,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -107,6 +108,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -129,6 +131,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <AdditionalOptions>/MD %(AdditionalOptions)</AdditionalOptions>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -151,6 +154,7 @@
     <ClInclude Include="src\Moss\Event\KeyEvent.h" />
     <ClInclude Include="src\Moss\Event\MouseEvent.h" />
     <ClInclude Include="src\Moss\Layer.h" />
+    <ClInclude Include="src\Moss\LayerStack.h" />
     <ClInclude Include="src\Moss\Log.h" />
     <ClInclude Include="src\Moss\Moss.h" />
     <ClInclude Include="src\Moss\Window.h" />
@@ -160,6 +164,7 @@
     <ClCompile Include="Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Moss\Application.cpp" />
     <ClCompile Include="src\Moss\Layer.cpp" />
+    <ClCompile Include="src\Moss\LayerStack.cpp" />
     <ClCompile Include="src\Moss\Log.cpp" />
     <ClCompile Include="src\mspch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>

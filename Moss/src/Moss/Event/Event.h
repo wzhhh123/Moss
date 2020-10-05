@@ -53,7 +53,9 @@ namespace Moss {
 			return GetCategoryFlags() & category;
 		}
 
-	protected:
+		bool Handled() { return m_Handled; }
+
+	public:
 		bool m_Handled = false;
 
 	};
