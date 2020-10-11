@@ -7,6 +7,8 @@ workspace "Moss"
         "Release",
         "Dist"   
     }
+    
+    startproject "Sandbox"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
@@ -19,11 +21,13 @@ include "Moss/vendor/GLFW"  --类似c++的头文件引用，引用glfw下面的premake5文件
 include "Moss/vendor/GLAD" 
 include "Moss/vendor/imgui"
 
+
 project "Moss"
 
     location "Moss"
     kind "SharedLib"
     language "C++"
+	staticruntime "off"
 
     targetdir ("bin/"..outputdir.."/%{prj.name}")
     objdir ("bin-int/"..outputdir.."/%{prj.name}")
@@ -58,7 +62,6 @@ project "Moss"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
 
         defines
@@ -74,18 +77,18 @@ project "Moss"
         }
 
     filter "configurations:Debug"
-        defines "MO_DEBUG"
-		buildoptions "/MDd"     --multi thread dll 在代码生成-运行库下面  MDd是多线程调试dll，貌似这样看到dll的堆栈
+        defines "MS_DEBUG"
+		runtime "Debug"   --让运行库变成MDd 多线程调试dll
         symbols "On"
 
     filter "configurations:Release"
-        defines "MO_RELEASE"
-		buildoptions "/MD"
+        defines "MS_RELEASE"
+	    runtime "Release"
         symbols "On"
 
     filter "configurations:Dist"
-        defines "MO_DIST"
-		buildoptions "/MD"
+        defines "MS_DIST"
+        runtime "Release"
         symbols "On"
 
 
@@ -95,6 +98,7 @@ project "Sandbox"
     location "Sandbox"
     kind "ConsoleApp"
     language "C++"
+	staticruntime "off"
 
     targetdir ("bin/"..outputdir.."/%{prj.name}")
     objdir ("bin-int/"..outputdir.."/%{prj.name}")
@@ -118,7 +122,6 @@ project "Sandbox"
 
     filter "system:windows"
         cppdialect "C++17"
-        staticruntime "On"
         systemversion "latest"
 
         defines
@@ -127,18 +130,19 @@ project "Sandbox"
         }
 
     filter "configurations:Debug"
-        defines "MO_DEBUG"
-        buildoptions "/MDd"     --multi thread dll 在代码生成-运行库下面  MDd是多线程调试dll，不这样会crash，猜测是如果在debug下使用release的spdlog，spdlog的某些内存在release下会销毁，debug下尝试获取的时候非法了，要把spd改成debug
+        defines "MS_DEBUG"
+		runtime "Debug"
+        --buildoptions "/MDd"     --multi thread dll 在代码生成-运行库下面  MDd是多线程调试dll，不这样会crash，猜测是如果在debug下使用release的spdlog，spdlog的某些内存在release下会销毁，debug下尝试获取的时候非法了，要把spd改成debug
         symbols "On"
     
     filter "configurations:Release"
-        defines "MO_RELEASE"
-        buildoptions "/MD"
+        defines "MS_RELEASE"
+        runtime "Release"
         symbols "On"
 
     filter "configurations:Dist"
-        defines "MO_DIST"
-        buildoptions "/MD"
+        defines "MS_DIST"
+        runtime "Release"
         symbols "On"
 
 
