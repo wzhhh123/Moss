@@ -34,7 +34,8 @@ namespace Moss {
 
 		if (!s_GLFWInitialized) {
 			int success = glfwInit();
-			MS_CORE_ASSERT(success, "Could not initialize GLFW");
+			//MS_CORE_ASSERT(success, "Could not initialize GLFW");
+			MS_ASSERT(success, "Could not initialize GLFW");
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
