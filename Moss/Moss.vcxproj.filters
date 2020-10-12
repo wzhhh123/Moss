@@ -27,6 +27,9 @@
     <ClInclude Include="Platform\OpenGL\ImGuiOpenGLRenderer.h">
       <Filter>Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="Platform\Windows\WindowsInput.h">
+      <Filter>Platform\Windows</Filter>
+    </ClInclude>
     <ClInclude Include="Platform\Windows\WindowsWindow.h">
       <Filter>Platform\Windows</Filter>
     </ClInclude>
@@ -54,6 +57,9 @@
     <ClInclude Include="src\Moss\ImGui\ImGuiLayer.h">
       <Filter>src\Moss\ImGui</Filter>
     </ClInclude>
+    <ClInclude Include="src\Moss\Input.h">
+      <Filter>src\Moss</Filter>
+    </ClInclude>
     <ClInclude Include="src\Moss\Layer.h">
       <Filter>src\Moss</Filter>
     </ClInclude>
@@ -76,6 +82,9 @@
   <ItemGroup>
     <ClCompile Include="Platform\OpenGL\ImGuiOpenGLRenderer.cpp">
       <Filter>Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="Platform\Windows\WindowsInput.cpp">
+      <Filter>Platform\Windows</Filter>
     </ClCompile>
     <ClCompile Include="Platform\Windows\WindowsWindow.cpp">
       <Filter>Platform\Windows</Filter>
