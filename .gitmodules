@@ -7,3 +7,6 @@
 [submodule "Moss/vendor/imgui"]
 	path = Moss/vendor/imgui
 	url = https://github.com/TheCherno/imgui
+[submodule "Moss/vendor/glm"]
+	path = Moss/vendor/glm
+	url = https://github.com/g-truc/glm

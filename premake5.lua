@@ -16,6 +16,7 @@ IncludeDir = {}
 IncludeDir["GLFW"] = "Moss/vendor/GLFW/include"
 IncludeDir["GLAD"] = "Moss/vendor/GLAD/include"
 IncludeDir["imgui"] = "Moss/vendor/imgui"
+IncludeDir["glm"] = "Moss/vendor/glm"
 
 include "Moss/vendor/GLFW"  --类似c++的头文件引用，引用glfw下面的premake5文件
 include "Moss/vendor/GLAD" 
@@ -40,7 +41,9 @@ project "Moss"
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
         "%{prj.name}/Platform/**.h",
-        "%{prj.name}/Platform/**.cpp"
+        "%{prj.name}/Platform/**.cpp",
+        "%{prj.name}/vendor/glm/glm/**.hpp",
+        "%{prj.name}/vendor/glm/glm/**.inl",
     }
 
     includedirs
@@ -50,6 +53,7 @@ project "Moss"
 		"%{IncludeDir.GLFW}",
 		"%{IncludeDir.GLAD}",
 		"%{IncludeDir.imgui}",
+		"%{IncludeDir.glm}",
     }
 
 	links
@@ -112,7 +116,8 @@ project "Sandbox"
     includedirs
     {
         "Moss/vendor/spdlog/include",
-        "Moss/src"
+        "Moss/src",
+		"%{IncludeDir.glm}",
     }
 
     links
