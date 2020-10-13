@@ -154,10 +154,12 @@
     <ClInclude Include="src\Moss\Event\MouseEvent.h" />
     <ClInclude Include="src\Moss\ImGui\ImGuiLayer.h" />
     <ClInclude Include="src\Moss\Input.h" />
+    <ClInclude Include="src\Moss\KeyCodes.h" />
     <ClInclude Include="src\Moss\Layer.h" />
     <ClInclude Include="src\Moss\LayerStack.h" />
     <ClInclude Include="src\Moss\Log.h" />
     <ClInclude Include="src\Moss\Moss.h" />
+    <ClInclude Include="src\Moss\MouseButtonCodes.h" />
     <ClInclude Include="src\Moss\Window.h" />
     <ClInclude Include="src\mspch.h" />
   </ItemGroup>

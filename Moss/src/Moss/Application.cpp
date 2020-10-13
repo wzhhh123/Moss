@@ -56,7 +56,7 @@ namespace Moss {
 				layer->OnUpdate();
 
 			auto[x, y] = Input::GetMousePosition();
-			MS_CORE_TRACE("{0}, {1}", x, y);
+			//MS_CORE_TRACE("{0}, {1}", x, y);
 
 			m_Window->OnUpdate();
 		}

@@ -60,6 +60,9 @@
     <ClInclude Include="src\Moss\Input.h">
       <Filter>src\Moss</Filter>
     </ClInclude>
+    <ClInclude Include="src\Moss\KeyCodes.h">
+      <Filter>src\Moss</Filter>
+    </ClInclude>
     <ClInclude Include="src\Moss\Layer.h">
       <Filter>src\Moss</Filter>
     </ClInclude>
@@ -70,6 +73,9 @@
       <Filter>src\Moss</Filter>
     </ClInclude>
     <ClInclude Include="src\Moss\Moss.h">
+      <Filter>src\Moss</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\MouseButtonCodes.h">
       <Filter>src\Moss</Filter>
     </ClInclude>
     <ClInclude Include="src\Moss\Window.h">
