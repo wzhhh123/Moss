@@ -117,6 +117,7 @@ project "Sandbox"
     {
         "Moss/vendor/spdlog/include",
         "Moss/src",
+		"Moss/vendor",
 		"%{IncludeDir.glm}",
     }
 
