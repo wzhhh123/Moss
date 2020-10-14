@@ -6,7 +6,7 @@
 #include "Window.h"
 #include "Event/ApplicationEvent.h"
 #include "Moss/LayerStack.h"
-
+#include "Moss/ImGui/ImGuiLayer.h"
 namespace Moss {
 
 	class MOSS_API Application
@@ -26,6 +26,7 @@ namespace Moss {
 	private:	
 		static Application* s_Instance;
 		std::unique_ptr<Window>m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_IsRunning = true;
 		LayerStack m_LayerStack;
 		bool OnWindowClose(WindowCloseEvent& e);

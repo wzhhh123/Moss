@@ -17,6 +17,10 @@ namespace Moss {
 		s_Instance = this;
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
+
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
+
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 	}
 
@@ -55,8 +59,14 @@ namespace Moss {
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 
-			auto[x, y] = Input::GetMousePosition();
+			//auto[x, y] = Input::GetMousePosition();
 			//MS_CORE_TRACE("{0}, {1}", x, y);
+
+			//放在渲染线程 begin到end
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
 
 			m_Window->OnUpdate();
 		}

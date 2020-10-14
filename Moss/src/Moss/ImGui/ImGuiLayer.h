@@ -15,9 +15,10 @@ namespace Moss {
 		ImGuiLayer();
 		~ImGuiLayer();
 
-		virtual void OnAttach();
-		virtual void OnDetach();
-		virtual void OnUpdate();
+		//virtual可写可不写 override也是，全写比较清楚
+		virtual void OnAttach() override;
+		virtual void OnDetach() override;
+		virtual void OnImGuiRender() override;
 
 		void Begin();
 		void End();

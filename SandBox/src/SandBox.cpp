@@ -33,7 +33,6 @@ class Sandbox : public Moss::Application {
 public:
 	Sandbox() {
 		PushLayer(new ExampleLayer());
-		PushOverlay(new Moss::ImGuiLayer());
 	}
 	~Sandbox() {
 
