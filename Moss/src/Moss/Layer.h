@@ -11,6 +11,7 @@ namespace Moss {
 		Layer(const std::string& name = "Layer");
 		virtual ~Layer();
 
+		virtual void OnImGuiRender() {}
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
 		virtual void OnUpdate() {}

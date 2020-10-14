@@ -142,7 +142,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Platform\OpenGL\ImGuiOpenGLRenderer.h" />
     <ClInclude Include="Platform\Windows\WindowsInput.h" />
     <ClInclude Include="Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Moss\Application.h" />
@@ -164,10 +163,10 @@
     <ClInclude Include="src\mspch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
     <ClCompile Include="Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Moss\Application.cpp" />
+    <ClCompile Include="src\Moss\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Moss\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Moss\Layer.cpp" />
     <ClCompile Include="src\Moss\LayerStack.cpp" />

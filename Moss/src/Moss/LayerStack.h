@@ -21,7 +21,8 @@ namespace Moss {
 		std::vector<Layer*>::iterator end() { return m_Layers.end(); }
 	private:
 		std::vector<Layer*>m_Layers;
-		std::vector<Layer*>::iterator m_LayerInsert;
+		//std::vector<Layer*>::iterator m_LayerInsert; 不要用迭代器，vector扩容可能会整个内存迁移，这个迭代器就失效了
+		unsigned int m_LayerInsertIndex = 0;
 	};
 
 }
