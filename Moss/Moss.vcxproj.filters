@@ -1343,6 +1343,9 @@
     <ClCompile Include="src\Moss\Application.cpp">
       <Filter>src\Moss</Filter>
     </ClCompile>
+    <ClCompile Include="src\Moss\ImGui\ImGuiBuild.cpp">
+      <Filter>src\Moss\ImGui</Filter>
+    </ClCompile>
     <ClCompile Include="src\Moss\ImGui\ImGuiLayer.cpp">
       <Filter>src\Moss\ImGui</Filter>
     </ClCompile>
