@@ -9,4 +9,4 @@
 	url = https://github.com/g-truc/glm
 [submodule "Moss/vendor/GLFW"]
 	path = Moss/vendor/GLFW
-	url = https://github.com/wzhhh123/glfw-1
+	url = https://github.com/wzhhh123/glfw
