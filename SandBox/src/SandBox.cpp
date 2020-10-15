@@ -12,7 +12,6 @@ public:
 	}
 
 	void OnUpdate() override {
-		//MS_INFO("ExampleLayer::Update");
 		if (Moss::Input::IsKeyPressed(MS_KEY_TAB)) {
 			MS_INFO("Tab key is pressed! (poll)");
 		}
