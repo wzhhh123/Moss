@@ -45,6 +45,27 @@ namespace Moss {
 		};
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 		glBindVertexArray(0);
+
+		std::string vertexSrc = R"(
+			#version 330 core
+			layout(location = 0) in vec3 a_Position;
+			void main()
+			{
+				gl_Position = vec4(a_Position,1);
+			}		
+		)";
+
+
+		std::string fragmentSrc = R"(
+			#version 330 core
+			layout(location = 0) out vec4 color;
+			void main()
+			{
+				color = vec4(0.8,0.2,0.3,1);
+			}		
+		)";
+
+		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
 	}
 
 	Application::~Application() {
@@ -79,8 +100,10 @@ namespace Moss {
 			glClearColor(0.2f, 0.2f, 0.2f, 0.2f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
+			m_Shader->Bind();
 			glBindVertexArray(m_VertexArray);
 			glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();

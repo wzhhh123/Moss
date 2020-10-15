@@ -7,6 +7,7 @@
 #include "Event/ApplicationEvent.h"
 #include "Moss/LayerStack.h"
 #include "Moss/ImGui/ImGuiLayer.h"
+#include "Moss/Renderer/Shader.h"
 namespace Moss {
 
 	class MOSS_API Application
@@ -32,7 +33,7 @@ namespace Moss {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
-
+		std::unique_ptr<Shader> m_Shader;
 	};
 
 	Application* CreateApplication();

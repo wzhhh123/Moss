@@ -1,150 +1,40 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="src">
-      <UniqueIdentifier>{2DAB880B-99B4-887C-2230-9F7C8E38947C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Moss">
-      <UniqueIdentifier>{9E4F22CF-8A1C-7DDA-B335-6B829F61B268}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Moss\Event">
-      <UniqueIdentifier>{6F8F984E-5B5D-8C54-44F1-FC7A305E68B9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Moss\ImGui">
-      <UniqueIdentifier>{4883DB4E-3451-CF54-1DE5-3F7B0952ABB9}</UniqueIdentifier>
-    </Filter>
-<<<<<<< HEAD
-=======
-    <Filter Include="src\Moss\Renderer">
-      <UniqueIdentifier>{04053C2D-701B-3AC3-B992-C5E425E80A4B}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Platform">
-      <UniqueIdentifier>{21CA02E5-0D2D-9289-B6B2-CA3FA2F45D0C}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Platform\OpenGL">
-      <UniqueIdentifier>{35A49437-A105-7245-2A73-B8F796D3A804}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\Platform\Windows">
-      <UniqueIdentifier>{5B054582-4794-CE4B-F0B2-E246DC20DFF1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor">
-      <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor\glm">
-      <UniqueIdentifier>{829FC5A8-6E57-07F6-D75E-E051C335A2E6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor\glm\glm">
-      <UniqueIdentifier>{D11AC9C9-BDE8-BCCF-A67C-2DF692E99834}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor\glm\glm\detail">
-      <UniqueIdentifier>{739DA071-DF09-5C6C-A8FD-F3C914297ED4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor\glm\glm\ext">
-      <UniqueIdentifier>{B19EA76B-9D82-68C1-06E3-6214F2E55243}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor\glm\glm\gtc">
-      <UniqueIdentifier>{9EA6A76B-8A8A-68C1-F3EA-6214DFED5243}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="vendor\glm\glm\gtx">
-      <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
-    </Filter>
->>>>>>> ac0a3427cdf50381ffb877bcdfb26defd4ad91a9
+    <ClCompile Include="src\Moss\Application.cpp" />
+    <ClCompile Include="src\Moss\ImGui\ImGuiBuild.cpp" />
+    <ClCompile Include="src\Moss\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Moss\Layer.cpp" />
+    <ClCompile Include="src\Moss\LayerStack.cpp" />
+    <ClCompile Include="src\Moss\Log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\mspch.cpp" />
+    <ClCompile Include="src\Moss\Renderer\Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Moss\Application.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Core.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\EntryPoint.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Event\ApplicationEvent.h">
-      <Filter>src\Moss\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Event\Event.h">
-      <Filter>src\Moss\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Event\KeyEvent.h">
-      <Filter>src\Moss\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Event\MouseEvent.h">
-      <Filter>src\Moss\Event</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\ImGui\ImGuiLayer.h">
-      <Filter>src\Moss\ImGui</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Input.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\KeyCodes.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Layer.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\LayerStack.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Log.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Moss.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\MouseButtonCodes.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Renderer\GraphicsContext.h">
-      <Filter>src\Moss\Renderer</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Moss\Window.h">
-      <Filter>src\Moss</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsInput.h">
-      <Filter>src\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
-      <Filter>src\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\mspch.h">
-      <Filter>src</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\Moss\Application.cpp">
-      <Filter>src\Moss</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Moss\ImGui\ImGuiBuild.cpp">
-      <Filter>src\Moss\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Moss\ImGui\ImGuiLayer.cpp">
-      <Filter>src\Moss\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Moss\Layer.cpp">
-      <Filter>src\Moss</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Moss\LayerStack.cpp">
-      <Filter>src\Moss</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Moss\Log.cpp">
-      <Filter>src\Moss</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp">
-      <Filter>src\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
-      <Filter>src\Platform\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
-      <Filter>src\Platform\Windows</Filter>
-    </ClCompile>
-    <ClCompile Include="src\mspch.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
+    <ClInclude Include="src\Moss\Application.h" />
+    <ClInclude Include="src\Moss\Core.h" />
+    <ClInclude Include="src\Moss\EntryPoint.h" />
+    <ClInclude Include="src\Moss\Event\ApplicationEvent.h" />
+    <ClInclude Include="src\Moss\Event\Event.h" />
+    <ClInclude Include="src\Moss\Event\KeyEvent.h" />
+    <ClInclude Include="src\Moss\Event\MouseEvent.h" />
+    <ClInclude Include="src\Moss\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Moss\Input.h" />
+    <ClInclude Include="src\Moss\KeyCodes.h" />
+    <ClInclude Include="src\Moss\Layer.h" />
+    <ClInclude Include="src\Moss\LayerStack.h" />
+    <ClInclude Include="src\Moss\Log.h" />
+    <ClInclude Include="src\Moss\Moss.h" />
+    <ClInclude Include="src\Moss\MouseButtonCodes.h" />
+    <ClInclude Include="src\Moss\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Moss\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\mspch.h" />
+    <ClInclude Include="src\Moss\Renderer\Shader.h" />
   </ItemGroup>
 </Project>
