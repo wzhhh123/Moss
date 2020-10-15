@@ -1,9 +1,6 @@
 [submodule "Moss/vendor/spdlog"]
 	path = Moss/vendor/spdlog
 	url = https://github.com/gabime/spdlog
-[submodule "Moss/vendor/GLFW"]
-       	path = Moss/vendor/GLFW
-       	url = https://github.com/TheCherno/glfw
 [submodule "Moss/vendor/imgui"]
 	path = Moss/vendor/imgui
 	url = https://github.com/TheCherno/imgui
@@ -12,3 +9,6 @@
 	url = https://github.com/g-truc/glm
 
 
+[submodule "Moss/vendor/GLFW"]
+	path = Moss/vendor/GLFW
+	url = https://github.com/wzhhh123/glfw.git
