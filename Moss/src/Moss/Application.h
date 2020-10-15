@@ -30,6 +30,9 @@ namespace Moss {
 		bool m_IsRunning = true;
 		LayerStack m_LayerStack;
 		bool OnWindowClose(WindowCloseEvent& e);
+
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+
 	};
 
 	Application* CreateApplication();
