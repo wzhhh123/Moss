@@ -3,7 +3,7 @@
 #include "Moss/Event/KeyEvent.h"
 #include "Moss/Event/MouseEvent.h"
 #include "Moss/Event/ApplicationEvent.h"
-#include "glad/glad.h"
+#include "Platform/OpenGL/OpenGLContext.h"
 
 namespace Moss {
 
@@ -30,6 +30,8 @@ namespace Moss {
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
+
+
 		MS_CORE_INFO("Creating window {0} ({1}, {2})", props.Title, props.Width, props.Height);
 
 		if (!s_GLFWInitialized) {
@@ -41,13 +43,14 @@ namespace Moss {
 		}
 
 		m_Window = glfwCreateWindow((int)props.Width, (int)props.Height, props.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		MS_CORE_ASSERT(status, "Failed to initialize Glad!");
+		m_Context = new OpenGLContext(m_Window);
+		m_Context->Init();
+
+	
 		glfwSetWindowUserPointer(m_Window, &m_Data); //传入这个m_Data，glfw有回调触发的时候会用这个作为参数
 		SetVSync(true);
 
-		//Set Glfw callbacks
+		//Set glfw callbacks
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -132,7 +135,7 @@ namespace Moss {
 
 	void WindowsWindow::OnUpdate() {
 		glfwPollEvents();
-		glfwSwapBuffers(m_Window);
+		m_Context->SwapBuffers();
 	}
 
 	void WindowsWindow::SetVSync(bool enabled) {

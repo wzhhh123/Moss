@@ -41,8 +41,6 @@ project "Moss"
     {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
-        "%{prj.name}/Platform/**.h",
-        "%{prj.name}/Platform/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl",
     }
@@ -56,6 +54,11 @@ project "Moss"
 		"%{IncludeDir.imgui}",
 		"%{IncludeDir.glm}",
     }
+
+	defines
+	{
+		"_CRT_SECURE_NO_WARNINGS",
+	}
 
 	links
 	{

@@ -77,7 +77,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>mspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MOSS_PLATFORM_WINDOWS;MOSS_BUILD_DLL;GLFW_INCLUDE_NONE;MS_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MOSS_PLATFORM_WINDOWS;MOSS_BUILD_DLL;GLFW_INCLUDE_NONE;MS_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
@@ -100,7 +100,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>mspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MOSS_PLATFORM_WINDOWS;MOSS_BUILD_DLL;GLFW_INCLUDE_NONE;MS_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MOSS_PLATFORM_WINDOWS;MOSS_BUILD_DLL;GLFW_INCLUDE_NONE;MS_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -127,7 +127,7 @@
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>mspch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>MOSS_PLATFORM_WINDOWS;MOSS_BUILD_DLL;GLFW_INCLUDE_NONE;MS_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;MOSS_PLATFORM_WINDOWS;MOSS_BUILD_DLL;GLFW_INCLUDE_NONE;MS_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>vendor\spdlog\include;src;vendor\GLFW\include;vendor\GLAD\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -150,8 +150,6 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Platform\Windows\WindowsInput.h" />
-    <ClInclude Include="Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Moss\Application.h" />
     <ClInclude Include="src\Moss\Core.h" />
     <ClInclude Include="src\Moss\EntryPoint.h" />
@@ -167,7 +165,11 @@
     <ClInclude Include="src\Moss\Log.h" />
     <ClInclude Include="src\Moss\Moss.h" />
     <ClInclude Include="src\Moss\MouseButtonCodes.h" />
+    <ClInclude Include="src\Moss\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Moss\Window.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLContext.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\mspch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
@@ -579,14 +581,15 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Platform\Windows\WindowsInput.cpp" />
-    <ClCompile Include="Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Moss\Application.cpp" />
     <ClCompile Include="src\Moss\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Moss\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Moss\Layer.cpp" />
     <ClCompile Include="src\Moss\LayerStack.cpp" />
     <ClCompile Include="src\Moss\Log.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\mspch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

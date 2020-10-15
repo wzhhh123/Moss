@@ -2,6 +2,7 @@
 
 #include "GLFW/glfw3.h"
 #include "Moss/Window.h"
+#include "Moss/Renderer/GraphicsContext.h"
 
 namespace Moss {
 
@@ -30,6 +31,8 @@ namespace Moss {
 		virtual void Shutdown();
 
 		GLFWwindow* m_Window;
+
+		GraphicsContext* m_Context;
 
 		struct WindowData {
 			std::string Title;

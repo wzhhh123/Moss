@@ -53,7 +53,7 @@ namespace Moss {
 	void Application::Run() {
 		while (m_IsRunning) 
 		{
-			glClearColor(0.2, 0.2, 0, 0.2);
+			glClearColor(0.2f, 0.2f, 0.0f, 0.2f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			for (Layer* layer : m_LayerStack)
