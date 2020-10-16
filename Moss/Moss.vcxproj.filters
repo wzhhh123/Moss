@@ -12,6 +12,9 @@
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\mspch.cpp" />
     <ClCompile Include="src\Moss\Renderer\Shader.cpp" />
+    <ClCompile Include="src\Moss\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Moss\Renderer\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Moss\Application.h" />
@@ -36,5 +39,8 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\mspch.h" />
     <ClInclude Include="src\Moss\Renderer\Shader.h" />
+    <ClInclude Include="src\Moss\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Moss\Renderer\Renderer.h" />
   </ItemGroup>
 </Project>

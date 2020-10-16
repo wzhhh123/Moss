@@ -8,6 +8,8 @@
 #include "Moss/LayerStack.h"
 #include "Moss/ImGui/ImGuiLayer.h"
 #include "Moss/Renderer/Shader.h"
+#include "Platform/OpenGL/OpenGLBuffer.h"
+
 namespace Moss {
 
 	class MOSS_API Application
@@ -32,7 +34,9 @@ namespace Moss {
 		LayerStack m_LayerStack;
 		bool OnWindowClose(WindowCloseEvent& e);
 
-		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		unsigned int m_VertexArray;
+		std::unique_ptr<VertexBuffer>m_VertexBuffer;
+		std::unique_ptr<IndexBuffer>m_IndexBuffer;
 		std::unique_ptr<Shader> m_Shader;
 	};
 

@@ -150,6 +150,8 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Moss\Renderer\Renderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="src\Moss\Application.h" />
     <ClInclude Include="src\Moss\Core.h" />
     <ClInclude Include="src\Moss\EntryPoint.h" />
@@ -165,6 +167,7 @@
     <ClInclude Include="src\Moss\Log.h" />
     <ClInclude Include="src\Moss\Moss.h" />
     <ClInclude Include="src\Moss\MouseButtonCodes.h" />
+    <ClInclude Include="src\Moss\Renderer\Buffer.h" />
     <ClInclude Include="src\Moss\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Moss\Renderer\Shader.h" />
     <ClInclude Include="src\Moss\Window.h" />
@@ -174,12 +177,15 @@
     <ClInclude Include="src\mspch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Moss\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="src\Moss\Application.cpp" />
     <ClCompile Include="src\Moss\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Moss\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Moss\Layer.cpp" />
     <ClCompile Include="src\Moss\LayerStack.cpp" />
     <ClCompile Include="src\Moss\Log.cpp" />
+    <ClCompile Include="src\Moss\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Moss\Renderer\Shader.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
