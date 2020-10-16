@@ -66,7 +66,8 @@ namespace Moss {
 		m_Shader.reset(new Shader(vertexSrc, fragmentSrc));
 	}
 
-	Application::~Application() {
+	Application::~Application() 
+	{
 
 	}
 
