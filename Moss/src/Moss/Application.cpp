@@ -113,6 +113,15 @@ namespace Moss {
 			glClearColor(0.2f, 0.2f, 0.2f, 0.2f);
 			glClear(GL_COLOR_BUFFER_BIT);
 
+
+			RenderCommand::SetClearColor();
+			RenderCommand::Clear();
+
+			Renderer::BeginScene();
+			m_Shader->Bind();
+			Renderer::Submit();
+			Renderer::EndScene();
+			
 			m_Shader->Bind();
 			m_VertexArray->Bind();
 		

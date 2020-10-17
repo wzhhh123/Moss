@@ -34,10 +34,10 @@ namespace Moss {
 	{
 		switch (Renderer::GetAPI())
 		{
-		case  RendererAPI::None:
+		case  RendererAPI::API::None:
 			MS_CORE_ASSERT(false, "RendererAPI::None is not supported!");
 			return nullptr;
-		case  RendererAPI::OpenGL:
+		case  RendererAPI::API::OpenGL:
 			return new OpenGLVertexArray();
 		default:
 			break;

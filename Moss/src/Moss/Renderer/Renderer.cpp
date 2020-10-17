@@ -5,6 +5,6 @@
 
 namespace Moss {
 
-	Moss::RendererAPI Renderer::s_RendererAPI = RendererAPI::OpenGL;
+	RendererAPI::API Moss::Renderer::s_RendererAPI = RendererAPI::API::OpenGL;
 
 }
