@@ -9,25 +9,7 @@ namespace Moss {
 
 #define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
 
-	static GLenum ShaderDataTypeToOpenGLBaseType(ShaderDataType type) {
-		switch (type)
-		{
-		case Moss::ShaderDataType::Float:				return GL_FLOAT;
-		case Moss::ShaderDataType::Float2:			return GL_FLOAT;
-		case Moss::ShaderDataType::Float3:			return GL_FLOAT;
-		case Moss::ShaderDataType::Float4:			return GL_FLOAT;
-		case Moss::ShaderDataType::Mat3:				return GL_FLOAT;
-		case Moss::ShaderDataType::Mat4:				return GL_FLOAT;
-		case Moss::ShaderDataType::Int:					return GL_INT;
-		case Moss::ShaderDataType::Int2:				return GL_INT;
-		case Moss::ShaderDataType::Int3:				return GL_INT;
-		case Moss::ShaderDataType::Int4:				return GL_INT;
-		case Moss::ShaderDataType::Bool:				return GL_BOOL;
-
-		}
-		MS_CORE_ASSERT(false, "Unknown ShaderDataType!");
-		return 0;
-	}
+	
 
 	Application* Application::s_Instance = nullptr;
 
@@ -42,9 +24,7 @@ namespace Moss {
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 
-		glGenVertexArrays(1, &m_VertexArray);
-		glBindVertexArray(m_VertexArray);
-
+	
 		float vertices[7 * 3] = {
 			-0.5f,-0.5f,0.0f, 1.0f,1.0f,0.0f,0.0f,
 			0.5f,-0.5f,0.0f,1.0f,1.0f,1.0f,0.0f,
@@ -52,34 +32,23 @@ namespace Moss {
 		};
 
 		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
-		m_VertexBuffer->Bind();
-
 		BufferLayout layout = {
 			{ShaderDataType::Float3, "a_Position"},
 			{ShaderDataType::Float4, "a_Color"},
 		};
+		m_VertexBuffer->SetLayout(layout);
 
-
-		int index = 0;
-		for (auto& element : layout)
-		{
-			glEnableVertexAttribArray(index);
-			glVertexAttribPointer(
-				index, 
-				element.GetElementComponentCount(),
-				ShaderDataTypeToOpenGLBaseType(element.Type),
-				element.Normalized ?  GL_TRUE : GL_FALSE,
-				layout.GetStride(), (const void*)element.Offset);
-			index++;
-		}
+		m_VertexArray.reset(VertexArray::Create());
+		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
 
 
 		unsigned int indices[3] = {
 			0,1,2
 		};
+
 		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(unsigned int)));
-		m_IndexBuffer->Bind();
-		glBindVertexArray(0);
+
+		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
 
 		std::string vertexSrc = R"(
 			#version 330 core
@@ -142,7 +111,8 @@ namespace Moss {
 			glClear(GL_COLOR_BUFFER_BIT);
 
 			m_Shader->Bind();
-			glBindVertexArray(m_VertexArray);
+			m_VertexArray->Bind();
+		
 			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 
