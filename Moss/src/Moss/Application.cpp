@@ -2,9 +2,9 @@
 #include "mspch.h"
 #include "Application.h"
 #include <GLFW/glfw3.h>
-#include <glad/glad.h>
 #include <Moss/Input.h>
-
+#include <Moss/Renderer/Renderer.h>
+#include <Moss/Renderer/RenderCommand.h>
 namespace Moss {
 
 #define BIND_EVENT_FN(x) std::bind(&x, this, std::placeholders::_1)
@@ -110,23 +110,16 @@ namespace Moss {
 	void Application::Run() {
 		while (m_IsRunning) 
 		{
-			glClearColor(0.2f, 0.2f, 0.2f, 0.2f);
-			glClear(GL_COLOR_BUFFER_BIT);
 
-
-			RenderCommand::SetClearColor();
+			RenderCommand::SetClearColor(glm::vec4(0.2f, 0.2f, 0.2f, 0.2f));
 			RenderCommand::Clear();
 
 			Renderer::BeginScene();
-			m_Shader->Bind();
-			Renderer::Submit();
-			Renderer::EndScene();
-			
-			m_Shader->Bind();
-			m_VertexArray->Bind();
-		
-			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
+			m_Shader->Bind();
+			Renderer::Submit(m_VertexArray);
+			Renderer::EndScene();
+	
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();

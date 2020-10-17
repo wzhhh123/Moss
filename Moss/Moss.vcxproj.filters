@@ -17,6 +17,9 @@
     <ClCompile Include="src\Moss\Renderer\Renderer.cpp" />
     <ClCompile Include="src\Moss\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
+    <ClCompile Include="src\Moss\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\Moss\Renderer\RendererAPI.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Moss\Application.h" />
@@ -46,5 +49,8 @@
     <ClInclude Include="src\Moss\Renderer\Renderer.h" />
     <ClInclude Include="src\Moss\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
+    <ClInclude Include="src\Moss\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Moss\Renderer\RendererAPI.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h" />
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ namespace Moss {
 	public:
 
 		static void BeginScene();
-		static void EncScene();
+		static void EndScene();
 		static void Submit(const std::shared_ptr<VertexArray>& vertexArray);
 
 
