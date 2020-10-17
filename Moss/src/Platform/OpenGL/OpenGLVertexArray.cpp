@@ -26,6 +26,11 @@ namespace Moss {
 		return 0;
 	}
 
+
+	OpenGLVertexArray::~OpenGLVertexArray() {
+		glDeleteVertexArrays(1, &m_RendererID);
+	}
+
 	OpenGLVertexArray::OpenGLVertexArray() {
 		glCreateVertexArrays(1, &m_RendererID);
 	}
