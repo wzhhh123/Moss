@@ -31,6 +31,7 @@ namespace Moss {
 			0.0f,0.5f,0.0f,0.0f,1.0f,0.0f,0.0f,
 		};
 
+		std::shared_ptr<VertexBuffer>m_VertexBuffer;
 		m_VertexBuffer.reset(VertexBuffer::Create(vertices, sizeof(vertices)));
 		BufferLayout layout = {
 			{ShaderDataType::Float3, "a_Position"},
@@ -46,6 +47,8 @@ namespace Moss {
 			0,1,2
 		};
 
+
+		std::shared_ptr<IndexBuffer> m_IndexBuffer;
 		m_IndexBuffer.reset(IndexBuffer::Create(indices, sizeof(indices) / sizeof(unsigned int)));
 
 		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
@@ -113,7 +116,7 @@ namespace Moss {
 			m_Shader->Bind();
 			m_VertexArray->Bind();
 		
-			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+			glDrawElements(GL_TRIANGLES, m_VertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
 
 
 			for (Layer* layer : m_LayerStack)
