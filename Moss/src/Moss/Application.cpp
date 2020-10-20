@@ -13,7 +13,7 @@ namespace Moss {
 
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application() {
+	Application::Application() : m_Camera(-1,1,-1,1){
 		MS_CORE_ASSERT(!s_Instance, "Application already exits!");
 		s_Instance = this;
 
@@ -57,11 +57,15 @@ namespace Moss {
 			#version 330 core
 			layout(location = 0) in vec3 a_Position;
 			layout(location = 1) in vec4 a_Color;
+			
+			uniform mat4 u_ViewProjection;
+
 			out vec4 Color;
 			void main()
 			{
 				Color = a_Color;
-				gl_Position = vec4(a_Position,1);
+				gl_Position = u_ViewProjection * vec4(a_Position,1);
+				
 			}		
 		)";
 
@@ -70,6 +74,7 @@ namespace Moss {
 			#version 330 core
 			layout(location = 0) out vec4 color;
 			in vec4 Color;
+			//in vec3 v_Position;
 			void main()
 			{
 				color = Color;
@@ -117,6 +122,7 @@ namespace Moss {
 			Renderer::BeginScene();
 
 			m_Shader->Bind();
+			m_Shader->UploadUniformMat4("u_ViewProjection", m_Camera.GetViewProjectionMatrix());
 			Renderer::Submit(m_VertexArray);
 			Renderer::EndScene();
 	

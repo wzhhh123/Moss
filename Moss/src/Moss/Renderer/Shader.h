@@ -1,7 +1,7 @@
 #pragma once
 
-
 #include <string>
+#include <glm/glm.hpp>
 
 namespace Moss {
 
@@ -12,6 +12,8 @@ namespace Moss {
 
 		void Bind() const;
 		void Unbind() const;
+		
+		void UploadUniformMat4(const std::string&name, glm::mat4& matrix);
 
 	private:
 		uint32_t m_RendererID; //maybe program id

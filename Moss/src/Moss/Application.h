@@ -10,6 +10,7 @@
 #include "Moss/Renderer/Shader.h"
 #include "Platform/OpenGL/OpenGLBuffer.h"
 #include "Platform/OpenGL/OpenGLVertexArray.h"
+#include "Renderer/OrthographicCamera.h"
 
 namespace Moss {
 
@@ -37,6 +38,7 @@ namespace Moss {
 
 		std::shared_ptr<VertexArray>m_VertexArray;
 		std::shared_ptr<Shader> m_Shader;
+		OrthographicCamera m_Camera;
 	};
 
 	Application* CreateApplication();
