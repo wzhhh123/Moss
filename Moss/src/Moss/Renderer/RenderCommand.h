@@ -11,7 +11,6 @@ namespace Moss {
 	public:
 
 		inline static void DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray) {
-			vertexArray->Bind();
 			s_RendererAPI->DrawIndexed(vertexArray);
 		}
 

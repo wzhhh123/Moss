@@ -13,7 +13,7 @@ namespace Moss {
 
 	Application* Application::s_Instance = nullptr;
 
-	Application::Application() : m_Camera(-1,1,-1,1){
+	Application::Application() : m_Camera(-1.6,1.6,-0.9,0.9){
 		MS_CORE_ASSERT(!s_Instance, "Application already exits!");
 		s_Instance = this;
 
@@ -119,11 +119,12 @@ namespace Moss {
 			RenderCommand::SetClearColor(glm::vec4(0.2f, 0.2f, 0.2f, 0.2f));
 			RenderCommand::Clear();
 
-			Renderer::BeginScene();
 
-			m_Shader->Bind();
-			m_Shader->UploadUniformMat4("u_ViewProjection", m_Camera.GetViewProjectionMatrix());
-			Renderer::Submit(m_VertexArray);
+			m_Camera.SetPosition({ 0.5,0.5,0.5 });
+			m_Camera.SetRotation(45);
+
+			Renderer::BeginScene(m_Camera);
+			Renderer::Submit(m_VertexArray, m_Shader);
 			Renderer::EndScene();
 	
 
