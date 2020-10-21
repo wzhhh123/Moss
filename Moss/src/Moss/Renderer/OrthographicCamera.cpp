@@ -7,7 +7,7 @@
 namespace Moss {
 
 	OrthographicCamera::OrthographicCamera(float left, float right, float bottom, float top)
-		: m_ProjectionMatrix(glm::ortho(left,right,bottom,top,-1.0f,1.0f)), m_Position(glm::vec3(0,0,0)), m_Rotation(45)
+		: m_ProjectionMatrix(glm::ortho(left,right,bottom,top,-1.0f,1.0f)), m_Position(glm::vec3(0,0,0)), m_Rotation(0)
 	{
 		RecalculateViewMatrix();
 		m_ViewProjectionMatrix = m_ProjectionMatrix * m_ViewMatrix;
