@@ -12,5 +12,17 @@
 
 #include "Moss/ImGui/ImGuiLayer.h"
 
+
+//---------renderer----------
+#include "Moss/Renderer/Renderer.h"
+#include "Moss/Renderer/RenderCommand.h"
+
+#include "Moss/Renderer/Buffer.h"
+#include "Moss/Renderer/Shader.h"
+#include "Moss/Renderer/VertexArray.h"
+
+#include "Moss/Renderer/OrthographicCamera.h"
+
+
 //
 #include "EntryPoint.h"

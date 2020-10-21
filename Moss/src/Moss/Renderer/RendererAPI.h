@@ -21,7 +21,7 @@ namespace Moss {
 		virtual void DrawIndexed(const std::shared_ptr<VertexArray>&vertexArray) = 0;
 		
 
-		inline API GetAPI() { return s_API; }
+		inline static API GetAPI() { return s_API; }
 	private:
 		static API s_API;
 

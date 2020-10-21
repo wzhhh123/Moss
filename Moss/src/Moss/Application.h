@@ -36,9 +36,6 @@ namespace Moss {
 		LayerStack m_LayerStack;
 		bool OnWindowClose(WindowCloseEvent& e);
 
-		std::shared_ptr<VertexArray>m_VertexArray;
-		std::shared_ptr<Shader> m_Shader;
-		OrthographicCamera m_Camera;
 	};
 
 	Application* CreateApplication();
