@@ -46,6 +46,8 @@ namespace Moss {
 		m_Context = new OpenGLContext(m_Window);
 		m_Context->Init();
 
+		//glfwSetWindowTitle(m_Window, "Title");
+
 	
 		glfwSetWindowUserPointer(m_Window, &m_Data); //传入这个m_Data，glfw有回调触发的时候会用这个作为参数
 		SetVSync(true);

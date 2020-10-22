@@ -9,7 +9,7 @@ class ExampleLayer : public Moss::Layer {
 public:
 
 
-	ExampleLayer() :Layer("Example"), m_Camera(-1.6, 1.6, -0.9, 0.9) {
+	ExampleLayer() :Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f) , m_CameraPosition(0,0,0){
 
 		float vertices[7 * 3] = {
 			-0.5f,-0.5f,0.0f, 1.0f,1.0f,0.0f,0.0f,
@@ -74,12 +74,22 @@ public:
 
 	void OnUpdate() override {
 
+		if(Moss::Input::IsKeyPressed(MS_KEY_LEFT))
+			m_CameraPosition.x  -= m_CameraSpeed;
+		if (Moss::Input::IsKeyPressed(MS_KEY_RIGHT))
+			m_CameraPosition.x += m_CameraSpeed;
+		if (Moss::Input::IsKeyPressed(MS_KEY_UP))
+			m_CameraPosition.y += m_CameraSpeed;
+		if (Moss::Input::IsKeyPressed(MS_KEY_DOWN))
+			m_CameraPosition.y -= m_CameraSpeed;
+
+	
 		Moss::RenderCommand::SetClearColor(glm::vec4(0.2f, 0.2f, 0.2f, 0.2f));
 		Moss::RenderCommand::Clear();
 
 
-		m_Camera.SetPosition({ 0.5,0.5,0.5 });
-		m_Camera.SetRotation(45);
+		m_Camera.SetPosition(m_CameraPosition);
+		m_Camera.SetRotation(0);
 
 		Moss::Renderer::BeginScene(m_Camera);
 		Moss::Renderer::Submit(m_VertexArray, m_Shader);
@@ -93,15 +103,30 @@ public:
 
 	void OnEvent(Moss::Event& event)override {
 
+		Moss::EventDispatch dispatcher(event);
+		dispatcher.Dispatch<Moss::KeyPressedEvent>(MS_BIND_EVENT_FN(ExampleLayer::OnKeyPressedEvent));
+	}
 
+	bool OnKeyPressedEvent(Moss::KeyPressedEvent& event) {
 
-
-		/*if (event.GetEventType() == Moss::EventType::KeyPressed) {
-			Moss::KeyPressedEvent& e = (Moss::KeyPressedEvent&)event;
-			if (e.GetKeyCode() == MS_KEY_TAB) {
-				MS_INFO("Tab key is pressed! (event)");
-			}
+		/*switch (event.GetKeyCode())
+		{
+		case MS_KEY_LEFT:
+			m_CameraPosition.x -= m_CameraSpeed;
+				break;
+		case MS_KEY_RIGHT:
+			m_CameraPosition.x += m_CameraSpeed;
+			break;
+		case MS_KEY_UP:
+			m_CameraPosition.y += m_CameraSpeed;
+			break;
+		case MS_KEY_DOWN:
+			m_CameraPosition.y -= m_CameraSpeed;
+			break;
+		default:
+			break;
 		}*/
+		return false;
 	}
 
 
@@ -110,6 +135,8 @@ private:
 	std::shared_ptr<Moss::Shader> m_Shader;
 	Moss::OrthographicCamera m_Camera;
 
+	float m_CameraSpeed = 0.1f;
+	glm::vec3 m_CameraPosition;
 };
 
 class Sandbox : public Moss::Application {

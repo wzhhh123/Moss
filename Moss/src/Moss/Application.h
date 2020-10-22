@@ -7,10 +7,6 @@
 #include "Event/ApplicationEvent.h"
 #include "Moss/LayerStack.h"
 #include "Moss/ImGui/ImGuiLayer.h"
-#include "Moss/Renderer/Shader.h"
-#include "Platform/OpenGL/OpenGLBuffer.h"
-#include "Platform/OpenGL/OpenGLVertexArray.h"
-#include "Renderer/OrthographicCamera.h"
 
 namespace Moss {
 
