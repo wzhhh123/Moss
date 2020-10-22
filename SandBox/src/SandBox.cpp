@@ -9,7 +9,7 @@ class ExampleLayer : public Moss::Layer {
 public:
 
 
-	ExampleLayer() :Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f) , m_CameraPosition(0,0,0){
+	ExampleLayer() :Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f) , m_CameraPosition(0,0,0), m_Transofrm(0.0f){
 
 		float vertices[7 * 3] = {
 			-0.5f,-0.5f,0.0f, 1.0f,1.0f,0.0f,0.0f,
@@ -45,12 +45,12 @@ public:
 			layout(location = 1) in vec4 a_Color;
 			
 			uniform mat4 u_ViewProjection;
-
+			uniform mat4 u_Transform;
 			out vec4 Color;
 			void main()
 			{
 				Color = a_Color;
-				gl_Position = u_ViewProjection * vec4(a_Position,1);
+				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position,1);
 				
 			}		
 		)";
@@ -137,6 +137,8 @@ private:
 
 	float m_CameraSpeed = 0.1f;
 	glm::vec3 m_CameraPosition;
+
+	glm::vec3 m_Transofrm;
 };
 
 class Sandbox : public Moss::Application {
