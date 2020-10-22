@@ -2,7 +2,7 @@
 #include "mspch.h"
 #include "Moss/Moss.h"
 #include "glm/glm.hpp"
-
+#include "glm/gtx/transform.hpp"
 #include "imgui/imgui.h"
 
 class ExampleLayer : public Moss::Layer {
@@ -85,6 +85,13 @@ public:
 		if (Moss::Input::IsKeyPressed(MS_KEY_DOWN))
 			m_CameraPosition.y -= m_CameraSpeed * ts;
 
+
+
+		if (Moss::Input::IsKeyPressed(MS_KEY_L))
+			m_Transofrm.x -= m_CameraSpeed * ts;
+		if (Moss::Input::IsKeyPressed(MS_KEY_R))
+			m_Transofrm.x += m_CameraSpeed * ts;
+
 	
 		Moss::RenderCommand::SetClearColor(glm::vec4(0.2f, 0.2f, 0.2f, 0.2f));
 		Moss::RenderCommand::Clear();
@@ -94,7 +101,11 @@ public:
 		m_Camera.SetRotation(0);
 
 		Moss::Renderer::BeginScene(m_Camera);
-		Moss::Renderer::Submit(m_VertexArray, m_Shader);
+
+
+		glm::mat4 transform = glm::translate(glm::mat4(1.0f), m_Transofrm);
+
+		Moss::Renderer::Submit(m_VertexArray, m_Shader, transform);
 		Moss::Renderer::EndScene();
 
 	}
