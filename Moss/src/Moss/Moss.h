@@ -6,6 +6,8 @@
 #include "Layer.h"
 #include "Log.h"
 
+#include "Moss/Core/Timestep.h"
+
 #include "Input.h"
 #include "Moss/KeyCodes.h"
 #include "Moss/MouseButtonCodes.h"

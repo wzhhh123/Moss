@@ -72,16 +72,18 @@ public:
 
 	}
 
-	void OnUpdate() override {
+	void OnUpdate(Moss::Timestep ts) override {
 
-		if(Moss::Input::IsKeyPressed(MS_KEY_LEFT))
-			m_CameraPosition.x  -= m_CameraSpeed;
+		MS_INFO(ts.GetMilliseconds());
+
+		if (Moss::Input::IsKeyPressed(MS_KEY_LEFT))
+			m_CameraPosition.x -= m_CameraSpeed * ts;
 		if (Moss::Input::IsKeyPressed(MS_KEY_RIGHT))
-			m_CameraPosition.x += m_CameraSpeed;
+			m_CameraPosition.x += m_CameraSpeed * ts;
 		if (Moss::Input::IsKeyPressed(MS_KEY_UP))
-			m_CameraPosition.y += m_CameraSpeed;
+			m_CameraPosition.y += m_CameraSpeed * ts;
 		if (Moss::Input::IsKeyPressed(MS_KEY_DOWN))
-			m_CameraPosition.y -= m_CameraSpeed;
+			m_CameraPosition.y -= m_CameraSpeed * ts;
 
 	
 		Moss::RenderCommand::SetClearColor(glm::vec4(0.2f, 0.2f, 0.2f, 0.2f));

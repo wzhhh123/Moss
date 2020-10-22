@@ -2,6 +2,7 @@
 
 #include "Moss/Core.h"
 #include "Event/Event.h"
+#include "Moss/Core/Timestep.h"
 
 namespace Moss {
 
@@ -14,7 +15,7 @@ namespace Moss {
 		virtual void OnImGuiRender() {}
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep ts) {}
 		virtual void OnEvent(Event& event) {}
 
 		inline const std::string& GetName()const { return m_DebugName; }

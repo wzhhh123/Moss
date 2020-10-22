@@ -6,6 +6,7 @@
 #include "Window.h"
 #include "Event/ApplicationEvent.h"
 #include "Moss/LayerStack.h"
+#include "Moss/Core/Timestep.h"
 #include "Moss/ImGui/ImGuiLayer.h"
 
 namespace Moss {
@@ -30,6 +31,8 @@ namespace Moss {
 		ImGuiLayer* m_ImGuiLayer;
 		bool m_IsRunning = true;
 		LayerStack m_LayerStack;
+		float m_LastFrameTime = 0.0f;
+	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
 	};
