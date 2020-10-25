@@ -1366,6 +1366,7 @@
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
     <ClInclude Include="src\Moss\Core\Timestep.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Moss\Application.cpp">
@@ -1429,5 +1430,6 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\Moss\Core\Timestep.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
   </ItemGroup>
 </Project>

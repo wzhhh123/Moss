@@ -4,6 +4,8 @@
 #include "glm/glm.hpp"
 #include "glm/gtx/transform.hpp"
 #include "imgui/imgui.h"
+#include <memory>
+#include "Platform/OpenGL/OpenGLShader.h"
 
 class ExampleLayer : public Moss::Layer {
 public:
@@ -60,21 +62,19 @@ public:
 			#version 330 core
 			layout(location = 0) out vec4 color;
 			in vec4 Color;
-			//in vec3 v_Position;
+
+			uniform vec4 u_Color;
 			void main()
 			{
-				color = Color;
+				color = u_Color;
 				//color = vec4(0.8,0.2,0.3,1);
 			}		
 		)";
 
-		m_Shader.reset(new Moss::Shader(vertexSrc, fragmentSrc));
-
+		m_Shader.reset(Moss::Shader::Create(vertexSrc, fragmentSrc));
 	}
 
 	void OnUpdate(Moss::Timestep ts) override {
-
-		MS_INFO(ts.GetMilliseconds());
 
 		if (Moss::Input::IsKeyPressed(MS_KEY_LEFT))
 			m_CameraPosition.x -= m_CameraSpeed * ts;
@@ -84,7 +84,6 @@ public:
 			m_CameraPosition.y += m_CameraSpeed * ts;
 		if (Moss::Input::IsKeyPressed(MS_KEY_DOWN))
 			m_CameraPosition.y -= m_CameraSpeed * ts;
-
 
 
 		if (Moss::Input::IsKeyPressed(MS_KEY_L))
@@ -105,7 +104,10 @@ public:
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), m_Transofrm);
 
+		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->UploadUniformFloat4("u_Color", { 0,1,0,1 });
 		Moss::Renderer::Submit(m_VertexArray, m_Shader, transform);
+
+
 		Moss::Renderer::EndScene();
 
 	}
