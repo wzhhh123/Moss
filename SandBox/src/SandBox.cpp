@@ -6,12 +6,14 @@
 #include "imgui/imgui.h"
 #include <memory>
 #include "Platform/OpenGL/OpenGLShader.h"
+#include "glm/gtc/type_ptr.hpp"
 
 class ExampleLayer : public Moss::Layer {
 public:
 
 
-	ExampleLayer() :Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f) , m_CameraPosition(0,0,0), m_Transofrm(0.0f){
+	ExampleLayer() :Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f) , m_CameraPosition(0,0,0), 
+		m_Transofrm(0.0f), m_TriangleColor(0){
 
 		float vertices[7 * 3] = {
 			-0.5f,-0.5f,0.0f, 1.0f,1.0f,0.0f,0.0f,
@@ -63,10 +65,10 @@ public:
 			layout(location = 0) out vec4 color;
 			in vec4 Color;
 
-			uniform vec4 u_Color;
+			uniform vec3 u_Color;
 			void main()
 			{
-				color = u_Color;
+				color = vec4(u_Color, 1);
 				//color = vec4(0.8,0.2,0.3,1);
 			}		
 		)";
@@ -104,7 +106,7 @@ public:
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), m_Transofrm);
 
-		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->UploadUniformFloat4("u_Color", { 0,1,0,1 });
+		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->UploadUniformFloat3("u_Color", m_TriangleColor);
 		Moss::Renderer::Submit(m_VertexArray, m_Shader, transform);
 
 
@@ -113,6 +115,10 @@ public:
 	}
 
 	void OnImGuiRender() override {
+
+		ImGui::Begin("Settings");
+		ImGui::ColorEdit3("TriangleColor", glm::value_ptr(m_TriangleColor));
+		ImGui::End();
 
 	}
 
@@ -154,6 +160,8 @@ private:
 	glm::vec3 m_CameraPosition;
 
 	glm::vec3 m_Transofrm;
+
+	glm::vec3 m_TriangleColor;
 };
 
 class Sandbox : public Moss::Application {
