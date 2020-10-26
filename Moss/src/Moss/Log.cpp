@@ -5,8 +5,8 @@
 
 namespace Moss {
 
-	std::shared_ptr<spdlog::logger> Log::s_ClientLogger;
-	std::shared_ptr<spdlog::logger> Log::s_CoreLogger;
+	Moss::Ref<spdlog::logger> Log::s_ClientLogger;
+	Moss::Ref<spdlog::logger> Log::s_CoreLogger;
 
 	void Log::Init() {
 		spdlog::set_pattern("%^[%T] %n: %v%$");

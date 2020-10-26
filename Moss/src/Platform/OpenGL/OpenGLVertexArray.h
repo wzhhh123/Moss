@@ -16,20 +16,20 @@ namespace Moss {
 		virtual void Bind()const override;
 		virtual void Unbind() const override;
 
-		virtual void AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer) override;
-		virtual void SetIndexBuffer(const std::shared_ptr<IndexBuffer>& indexBuffer) override;
+		virtual void AddVertexBuffer(const Moss::Ref<VertexBuffer>& vertexBuffer) override;
+		virtual void SetIndexBuffer(const Moss::Ref<IndexBuffer>& indexBuffer) override;
 
 
-		virtual const std::vector<std::shared_ptr<VertexBuffer>>&GetVertexBuffer() const override;
-		virtual const std::shared_ptr<IndexBuffer>&GetIndexBuffer() const override;
+		virtual const std::vector<Moss::Ref<VertexBuffer>>&GetVertexBuffer() const override;
+		virtual const Moss::Ref<IndexBuffer>&GetIndexBuffer() const override;
 
 
 	private:
 
 		uint32_t m_RendererID;
 
-		std::vector<std::shared_ptr<VertexBuffer>>m_VertexBuffers;
-		std::shared_ptr<IndexBuffer>m_IndexBuffers;
+		std::vector<Moss::Ref<VertexBuffer>>m_VertexBuffers;
+		Moss::Ref<IndexBuffer>m_IndexBuffers;
 	};
 
 }

@@ -21,7 +21,7 @@ public:
 			0.0f,0.5f,0.0f,0.0f,1.0f,0.0f,0.0f,
 		};
 
-		std::shared_ptr<Moss::VertexBuffer>m_VertexBuffer;
+		Moss::Ref<Moss::VertexBuffer>m_VertexBuffer;
 		m_VertexBuffer.reset(Moss::VertexBuffer::Create(vertices, sizeof(vertices)));
 		Moss::BufferLayout layout = {
 			{Moss::ShaderDataType::Float3, "a_Position"},
@@ -38,7 +38,7 @@ public:
 		};
 
 
-		std::shared_ptr<Moss::IndexBuffer> m_IndexBuffer;
+		Moss::Ref<Moss::IndexBuffer> m_IndexBuffer;
 		m_IndexBuffer.reset(Moss::IndexBuffer::Create(indices, sizeof(indices) / sizeof(unsigned int)));
 
 		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
@@ -152,8 +152,8 @@ public:
 
 
 private:
-	std::shared_ptr<Moss::VertexArray>m_VertexArray;
-	std::shared_ptr<Moss::Shader> m_Shader;
+	Moss::Ref<Moss::VertexArray>m_VertexArray;
+	Moss::Ref<Moss::Shader> m_Shader;
 	Moss::OrthographicCamera m_Camera;
 
 	float m_CameraSpeed = 0.1f;
