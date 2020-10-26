@@ -15,10 +15,10 @@ public:
 	ExampleLayer() :Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f) , m_CameraPosition(0,0,0), 
 		m_Transofrm(0.0f), m_TriangleColor(0){
 
-		float vertices[7 * 3] = {
-			-0.5f,-0.5f,0.0f, 1.0f,1.0f,0.0f,0.0f,
-			0.5f,-0.5f,0.0f,1.0f,1.0f,1.0f,0.0f,
-			0.0f,0.5f,0.0f,0.0f,1.0f,0.0f,0.0f,
+		float vertices[9 * 3] = {
+			-0.5f,-0.5f,0.0f, 1.0f,1.0f,0.0f,0.0f,0,0,
+			0.5f,-0.5f,0.0f,1.0f,1.0f,1.0f,0.0f,1,0,
+			0.0f,0.5f,0.0f,0.0f,1.0f,0.0f,0.0f,0,1,
 		};
 
 		Moss::Ref<Moss::VertexBuffer>m_VertexBuffer;
@@ -26,6 +26,7 @@ public:
 		Moss::BufferLayout layout = {
 			{Moss::ShaderDataType::Float3, "a_Position"},
 			{Moss::ShaderDataType::Float4, "a_Color"},
+			{Moss::ShaderDataType::Float2, "a_Uv"},
 		};
 		m_VertexBuffer->SetLayout(layout);
 
@@ -47,15 +48,16 @@ public:
 			#version 330 core
 			layout(location = 0) in vec3 a_Position;
 			layout(location = 1) in vec4 a_Color;
-			
+			layout(location = 2) in vec2 a_Uv;
 			uniform mat4 u_ViewProjection;
 			uniform mat4 u_Transform;
 			out vec4 Color;
+			out vec2 UV;
 			void main()
 			{
 				Color = a_Color;
 				gl_Position = u_ViewProjection * u_Transform * vec4(a_Position,1);
-				
+				UV = a_Uv;
 			}		
 		)";
 
@@ -64,11 +66,12 @@ public:
 			#version 330 core
 			layout(location = 0) out vec4 color;
 			in vec4 Color;
-
+			in vec2 UV;
 			uniform vec3 u_Color;
 			void main()
 			{
-				color = vec4(u_Color, 1);
+				color = vec4(UV,0,1);
+				//color = vec4(u_Color, 1);
 				//color = vec4(0.8,0.2,0.3,1);
 			}		
 		)";

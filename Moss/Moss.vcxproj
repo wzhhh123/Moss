@@ -150,6 +150,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture2D.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="src\Moss\Application.h" />
     <ClInclude Include="src\Moss\Core.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\mspch.h" />
     <ClInclude Include="src\Moss\Core\Timestep.h" />
+    <ClInclude Include="src\Moss\Renderer\Texture.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_features.hpp" />
     <ClInclude Include="vendor\glm\glm\detail\_fixes.hpp" />
@@ -593,6 +595,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture2D.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="src\Moss\Application.cpp" />
     <ClCompile Include="src\Moss\ImGui\ImGuiBuild.cpp" />
@@ -617,6 +620,7 @@
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Moss\Core\Timestep.cpp" />
+    <ClCompile Include="src\Moss\Renderer\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">

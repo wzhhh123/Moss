@@ -1367,6 +1367,8 @@
     </ClInclude>
     <ClInclude Include="src\Moss\Core\Timestep.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="src\Moss\Renderer\Texture.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture2D.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Moss\Application.cpp">
@@ -1431,5 +1433,7 @@
     </ClCompile>
     <ClCompile Include="src\Moss\Core\Timestep.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="src\Moss\Renderer\Texture.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture2D.cpp" />
   </ItemGroup>
 </Project>
