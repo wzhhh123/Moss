@@ -17,8 +17,9 @@ IncludeDir["GLFW"] = "Moss/vendor/GLFW/include"
 IncludeDir["GLAD"] = "Moss/vendor/GLAD/include"
 IncludeDir["imgui"] = "Moss/vendor/imgui"
 IncludeDir["glm"] = "Moss/vendor/glm"
+IncludeDir["stb_image"] = "Moss/vendor/stb_image"
 
-include "Moss/vendor/GLFW"  --类似c++的头文件引用，引用glfw下面的premake5文件
+include "Moss/vendor/GLFW"  --锟斤拷锟斤拷c++锟斤拷头锟侥硷拷锟斤拷锟矫ｏ拷锟斤拷锟斤拷glfw锟斤拷锟斤拷锟絧remake5锟侥硷拷
 include "Moss/vendor/GLAD" 
 include "Moss/vendor/imgui"
 
@@ -29,7 +30,7 @@ project "Moss"
     kind "StaticLib"
     language "C++"
     cppdialect "C++17"
-	staticruntime "on"  --使用sharedLib的时候要关闭，什么StaticLib内存分配方式是动态的，每次构建内存位置都不一样，debug正确，在release的时候会crash，所以要用动态的，关闭静态runtime??
+	staticruntime "on"  --使锟斤拷sharedLib锟斤拷时锟斤拷要锟截闭ｏ拷什么StaticLib锟节达拷锟斤拷浞绞斤拷嵌锟教拷模锟矫匡拷喂锟斤拷锟斤拷诖锟轿伙拷枚锟斤拷锟揭伙拷锟斤拷锟絛ebug锟斤拷确锟斤拷锟斤拷release锟斤拷时锟斤拷锟絚rash锟斤拷锟斤拷锟斤拷要锟矫讹拷态锟侥ｏ拷锟截闭撅拷态runtime??
 
     targetdir ("bin/"..outputdir.."/%{prj.name}")
     objdir ("bin-int/"..outputdir.."/%{prj.name}")
@@ -43,6 +44,8 @@ project "Moss"
         "%{prj.name}/src/**.cpp",
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl",
+        "%{prj.name}/vendor/stb_image/**.h",
+        "%{prj.name}/vendor/stb_image/**.cpp",
     }
 
     includedirs
@@ -53,6 +56,7 @@ project "Moss"
 		"%{IncludeDir.GLAD}",
 		"%{IncludeDir.imgui}",
 		"%{IncludeDir.glm}",
+		"%{IncludeDir.stb_image}",
     }
 
 	defines
@@ -62,7 +66,7 @@ project "Moss"
 
 	links
 	{
-		"GLFW",   --include了glfw的premake5，里面有个project叫GLFW
+		"GLFW",   --include锟斤拷glfw锟斤拷premake5锟斤拷锟斤拷锟斤拷锟叫革拷project锟斤拷GLFW
 		"opengl32.lib",
 		"GLAD",
 		"ImGui",
@@ -85,7 +89,7 @@ project "Moss"
 
 		filter "configurations:Debug"
 			defines "MS_DEBUG"
-			runtime "Debug"   --让运行库变成MDd 多线程调试dll
+			runtime "Debug"   --锟斤拷锟斤拷锟叫匡拷锟斤拷MDd 锟斤拷锟竭程碉拷锟斤拷dll
 			symbols "on"  --generate debug symbols
 
 		filter "configurations:Release"

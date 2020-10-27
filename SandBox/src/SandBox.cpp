@@ -68,15 +68,23 @@ public:
 			in vec4 Color;
 			in vec2 UV;
 			uniform vec3 u_Color;
+			uniform sampler2D u_Texture;
 			void main()
 			{
-				color = vec4(UV,0,1);
+				color = texture(u_Texture, UV);
+
+				//color = vec4(UV,0,1);
 				//color = vec4(u_Color, 1);
 				//color = vec4(0.8,0.2,0.3,1);
 			}		
 		)";
 
 		m_Shader.reset(Moss::Shader::Create(vertexSrc, fragmentSrc));
+		m_Texture = Moss::Texture2D::Create("assets/textures/wood.jpg");
+
+		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->Bind();
+		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->UploadUniformInt("u_Texture", 0);
+
 	}
 
 	void OnUpdate(Moss::Timestep ts) override {
@@ -108,6 +116,8 @@ public:
 
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), m_Transofrm);
+
+		m_Texture->Bind();
 
 		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->UploadUniformFloat3("u_Color", m_TriangleColor);
 		Moss::Renderer::Submit(m_VertexArray, m_Shader, transform);
@@ -155,6 +165,8 @@ public:
 
 
 private:
+	Moss::Ref<Moss::Texture2D>m_Texture;
+
 	Moss::Ref<Moss::VertexArray>m_VertexArray;
 	Moss::Ref<Moss::Shader> m_Shader;
 	Moss::OrthographicCamera m_Camera;

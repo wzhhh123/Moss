@@ -7,6 +7,9 @@
     <Filter Include="src\Moss">
       <UniqueIdentifier>{9E4F22CF-8A1C-7DDA-B335-6B829F61B268}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Moss\Core">
+      <UniqueIdentifier>{B6E6F34F-22A7-6F86-EBE1-B8035761B462}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Moss\Event">
       <UniqueIdentifier>{6F8F984E-5B5D-8C54-44F1-FC7A305E68B9}</UniqueIdentifier>
     </Filter>
@@ -46,6 +49,9 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Moss\Application.h">
@@ -53,6 +59,9 @@
     </ClInclude>
     <ClInclude Include="src\Moss\Core.h">
       <Filter>src\Moss</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Moss\Core\Timestep.h">
+      <Filter>src\Moss\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Moss\EntryPoint.h">
       <Filter>src\Moss</Filter>
@@ -114,6 +123,9 @@
     <ClInclude Include="src\Moss\Renderer\Shader.h">
       <Filter>src\Moss\Renderer</Filter>
     </ClInclude>
+    <ClInclude Include="src\Moss\Renderer\Texture.h">
+      <Filter>src\Moss\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Moss\Renderer\VertexArray.h">
       <Filter>src\Moss\Renderer</Filter>
     </ClInclude>
@@ -127,6 +139,12 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture2D.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h">
@@ -1365,14 +1383,16 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Moss\Core\Timestep.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLShader.h" />
-    <ClInclude Include="src\Moss\Renderer\Texture.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture2D.h" />
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Moss\Application.cpp">
       <Filter>src\Moss</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Moss\Core\Timestep.cpp">
+      <Filter>src\Moss\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Moss\ImGui\ImGuiBuild.cpp">
       <Filter>src\Moss\ImGui</Filter>
@@ -1407,6 +1427,9 @@
     <ClCompile Include="src\Moss\Renderer\Shader.cpp">
       <Filter>src\Moss\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\Moss\Renderer\Texture.cpp">
+      <Filter>src\Moss\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Moss\Renderer\VertexArray.cpp">
       <Filter>src\Moss\Renderer</Filter>
     </ClCompile>
@@ -1417,6 +1440,12 @@
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture2D.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp">
@@ -1431,9 +1460,8 @@
     <ClCompile Include="src\mspch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Moss\Core\Timestep.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLShader.cpp" />
-    <ClCompile Include="src\Moss\Renderer\Texture.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture2D.cpp" />
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

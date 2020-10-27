@@ -16,7 +16,7 @@ namespace Moss {
 			MS_CORE_ASSERT(false, "RendererAPI::None is not supported!");
 			return nullptr;
 		case  RendererAPI::API::OpenGL:
-			return Ref<OpenGLTexture2D>(new OpenGLTexture2D(path));
+			return std::make_shared<OpenGLTexture2D>(path);
 		default:
 			break;
 		}

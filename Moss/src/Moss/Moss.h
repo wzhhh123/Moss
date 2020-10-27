@@ -21,6 +21,7 @@
 
 #include "Moss/Renderer/Buffer.h"
 #include "Moss/Renderer/Shader.h"
+#include "Moss/Renderer/Texture.h"
 #include "Moss/Renderer/VertexArray.h"
 
 #include "Moss/Renderer/OrthographicCamera.h"
