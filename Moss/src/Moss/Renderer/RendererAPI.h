@@ -20,7 +20,7 @@ namespace Moss {
 		
 		virtual void DrawIndexed(const Moss::Ref<VertexArray>&vertexArray) = 0;
 		
-
+		virtual void Init() = 0;
 		inline static API GetAPI() { return s_API; }
 	private:
 		static API s_API;

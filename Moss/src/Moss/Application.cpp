@@ -24,6 +24,8 @@ namespace Moss {
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 		m_Window->SetVSync(false);
 
+		Renderer::Init();
+
 		m_ImGuiLayer = new ImGuiLayer();
 		PushOverlay(m_ImGuiLayer);
 
