@@ -15,10 +15,11 @@ public:
 	ExampleLayer() :Layer("Example"), m_Camera(-1.6f, 1.6f, -0.9f, 0.9f) , m_CameraPosition(0,0,0), 
 		m_Transofrm(0.0f), m_TriangleColor(0){
 
-		float vertices[9 * 3] = {
+		float vertices[9 * 4] = {
 			-0.5f,-0.5f,0.0f, 1.0f,1.0f,0.0f,0.0f,0,0,
 			0.5f,-0.5f,0.0f,1.0f,1.0f,1.0f,0.0f,1,0,
-			0.0f,0.5f,0.0f,0.0f,1.0f,0.0f,0.0f,0,1,
+			-0.5f,0.5f,0.0f,0.0f,1.0f,0.0f,0.0f,0,1,
+			0.5f, 0.5f,0.0f,0.0f,1.0f,0.0f,0.0f,1,1,
 		};
 
 		Moss::Ref<Moss::VertexBuffer>m_VertexBuffer;
@@ -34,8 +35,8 @@ public:
 		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
 
 
-		unsigned int indices[3] = {
-			0,1,2
+		unsigned int indices[6] = {
+			0,1,2,2,3,1
 		};
 
 
@@ -80,6 +81,7 @@ public:
 		)";
 
 		m_Shader.reset(Moss::Shader::Create(vertexSrc, fragmentSrc));
+		//m_Texture = Moss::Texture2D::Create("assets/textures/face.png");
 		m_Texture = Moss::Texture2D::Create("assets/textures/wood.jpg");
 
 		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->Bind();
