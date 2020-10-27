@@ -16,6 +16,7 @@ namespace Moss {
 		:m_Path(path)
 	{
 		int width, height, channels;
+		stbi_set_flip_vertically_on_load(1);
 		stbi_uc* data = stbi_load(path.c_str(), &width, &height, &channels, 0);
 		MS_CORE_ASSERT(data, "Failed to load image! name: {0}", path);
 		m_Width = width;
