@@ -82,7 +82,8 @@ public:
 
 		m_Shader.reset(Moss::Shader::Create(vertexSrc, fragmentSrc));
 		//m_Texture = Moss::Texture2D::Create("assets/textures/face.png");
-		m_Texture = Moss::Texture2D::Create("assets/textures/wood.jpg");
+		m_Texture = Moss::Texture2D::Create("assets/textures/moss.png");
+		//m_Texture = Moss::Texture2D::Create("assets/textures/wood.jpg");
 
 		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->Bind();
 		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->UploadUniformInt("u_Texture", 0);
@@ -108,7 +109,6 @@ public:
 		if (Moss::Input::IsKeyPressed(MS_KEY_R))
 			m_Transofrm.x += m_CameraSpeed * ts;
 
-	
 		Moss::RenderCommand::SetClearColor(glm::vec4(0.2f, 0.2f, 0.2f, 0.2f));
 		Moss::RenderCommand::Clear();
 

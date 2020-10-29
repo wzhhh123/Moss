@@ -30,4 +30,10 @@ namespace Moss {
 		RenderCommand::DrawIndexed(vertexArray);
 	}
 
+
+	void Renderer::Init(){
+		RenderCommand::Init();
+	}
+
+
 }

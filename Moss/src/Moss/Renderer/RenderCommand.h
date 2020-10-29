@@ -10,6 +10,11 @@ namespace Moss {
 	{
 	public:
 
+		inline static void Init(){
+			s_RendererAPI->Init();
+
+		}
+
 		inline static void DrawIndexed(const Moss::Ref<VertexArray>& vertexArray) {
 			s_RendererAPI->DrawIndexed(vertexArray);
 		}
