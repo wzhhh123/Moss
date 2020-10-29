@@ -597,7 +597,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Moss\Application.cpp" />
-    <ClCompile Include="src\Moss\Core\Timestep.cpp" />
     <ClCompile Include="src\Moss\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="src\Moss\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="src\Moss\Layer.cpp" />
