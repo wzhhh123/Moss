@@ -1,14 +1,19 @@
 #pragma once
 #include "Moss/Renderer/Shader.h"
-
+#include <unordered_map>
 
 namespace Moss {
+
+	//TODO Remove
+	//sandbox引用这个文件，sandbox项目没有配置引用opengl，所以这里打不开glad/glad.h，先这样fix一下
+	typedef unsigned int GLenum;
 
 	class OpenGLShader : public Shader
 	{
 
 	public:
 		OpenGLShader(const std::string& vertexSrc, const std::string& shaderSrc);
+		OpenGLShader(const std::string& filepath);
 
 		virtual void Bind() const override;
 		virtual void Unbind() const override;
@@ -24,6 +29,11 @@ namespace Moss {
 		void UploadUniformFloat(const std::string& name, float value);
 		void UploadUniformInt(const std::string& name, int value);
 
+
+	private:
+		std::string ReadFile(const std::string& filepath);
+		std::unordered_map<GLenum, std::string> PreProcess(const std::string& source);
+		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);
 	private:
 		uint32_t m_RendererID; //maybe program id
 

@@ -87,6 +87,8 @@ public:
 		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->Bind();
 		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->UploadUniformInt("u_Texture", 0);
 
+		Moss::Shader* sh = Moss::Shader::Create("assets/shaders/Texture.glsl");
+		
 	}
 
 	void OnUpdate(Moss::Timestep ts) override {

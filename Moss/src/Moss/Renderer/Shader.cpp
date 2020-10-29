@@ -27,4 +27,22 @@ namespace Moss {
 		return nullptr;
 	}
 
+	
+	Moss::Shader* Shader::Create(const std::string& filepath)
+	{
+		switch (Renderer::GetAPI())
+		{
+		case  RendererAPI::API::None:
+			MS_CORE_ASSERT(false, "RendererAPI::None is not supported!");
+			return nullptr;
+		case  RendererAPI::API::OpenGL:
+			return new OpenGLShader(filepath);
+		default:
+			break;
+		}
+		MS_CORE_ASSERT(false, "Unknow RendererAPI!");
+		return nullptr;
+	}
+
+
 }
