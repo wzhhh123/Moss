@@ -24,63 +24,13 @@ namespace Moss {
 	void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string>& shaderSources)
 	{
 
-	}
+		for (auto& kv : shaderSources) {
+			
+			GLenum shaderType = kv.first;
+			const std::string& source = kv.second;
 
-	std::string OpenGLShader::ReadFile(const std::string& filepath) {
-		std::string result;
-		std::ifstream in(filepath, std::ios::in, std::ios::binary);
-		if (in) {
-			in.seekg(0, std::ios::end);
-			result.resize(in.tellg());
-			in.seekg(0, std::ios::beg);
-			in.read(&result[0], result.size());
-			in.close();
 		}
-		else {
-			MS_CORE_ERROR("Could not open file '{0}'", filepath);
-		}
-		return result;
-	}
 
-
-	std::unordered_map<GLenum, std::string> OpenGLShader::PreProcess(const std::string& source)
-	{
-		std::unordered_map<GLenum, std::string> shaderSources;
-
-		const char* typeToken = "#type";
-		size_t typeTokenLength = strlen(typeToken);
-		size_t pos = source.find(typeToken, 0);
-		while (pos != std::string::npos) {
-			size_t eol = source.find_first_of("\r\n", pos);
-			MS_CORE_ASSERT(eol != std::string::npos, "Syntax error");
-			size_t begin = pos + typeTokenLength + 1;
-			std::string type = source.substr(begin, eol - begin);
-			MS_CORE_ASSERT(type == "vertex" || type == "fragment" || type == "pixel", "Invalid shader type '{0}'", type);
-
-			//这里nextlinePos == eol
-			size_t nextLinePos = source.find_first_of("\r\n", eol);
-			//找不到的时候pos是一个超级大的数值，
-			pos = source.find(typeToken, nextLinePos);
-			shaderSources[ShaderTypeFromString(type)] = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() - 1 : nextLinePos));
-		}
-		return shaderSources;
-	}
-
-	OpenGLShader::OpenGLShader(const std::string& filepath)
-	{
-		std::string shaderSource = ReadFile(filepath);
-		auto sources = PreProcess(shaderSource);
-		MS_INFO(sources[GL_VERTEX_SHADER]);
-		MS_INFO(sources[GL_FRAGMENT_SHADER]);
-	}
-
-
-	//复制来自 https://www.khronos.org/opengl/wiki/Shader_Compilation
-	OpenGLShader::OpenGLShader(const std::string& vertexSource, const std::string& fragmentSource)
-	{
-
-		MS_CORE_INFO(vertexSource.data());
-		MS_CORE_INFO(fragmentSource.data());
 
 		GLuint vertexShader = glCreateShader(GL_VERTEX_SHADER);
 
@@ -179,6 +129,62 @@ namespace Moss {
 		// Always detach shaders after a successful link.
 		glDetachShader(m_RendererID, vertexShader);
 		glDetachShader(m_RendererID, fragmentShader);
+	}
+
+	std::string OpenGLShader::ReadFile(const std::string& filepath) {
+		std::string result;
+		std::ifstream in(filepath, std::ios::in, std::ios::binary);
+		if (in) {
+			in.seekg(0, std::ios::end);
+			result.resize(in.tellg());
+			in.seekg(0, std::ios::beg);
+			in.read(&result[0], result.size());
+			in.close();
+		}
+		else {
+			MS_CORE_ERROR("Could not open file '{0}'", filepath);
+		}
+		return result;
+	}
+
+
+	std::unordered_map<GLenum, std::string> OpenGLShader::PreProcess(const std::string& source)
+	{
+		std::unordered_map<GLenum, std::string> shaderSources;
+
+		const char* typeToken = "#type";
+		size_t typeTokenLength = strlen(typeToken);
+		size_t pos = source.find(typeToken, 0);
+		while (pos != std::string::npos) {
+			size_t eol = source.find_first_of("\r\n", pos);
+			MS_CORE_ASSERT(eol != std::string::npos, "Syntax error");
+			size_t begin = pos + typeTokenLength + 1;
+			std::string type = source.substr(begin, eol - begin);
+			MS_CORE_ASSERT(type == "vertex" || type == "fragment" || type == "pixel", "Invalid shader type '{0}'", type);
+
+			//这里nextlinePos == eol
+			size_t nextLinePos = source.find_first_of("\r\n", eol);
+			//找不到的时候pos是一个超级大的数值，
+			pos = source.find(typeToken, nextLinePos);
+			shaderSources[ShaderTypeFromString(type)] = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() - 1 : nextLinePos));
+		}
+		return shaderSources;
+	}
+
+	OpenGLShader::OpenGLShader(const std::string& filepath)
+	{
+		std::string source = ReadFile(filepath);
+		auto shaderSources = PreProcess(source);
+		Compile(shaderSources);
+
+	}
+
+
+	//复制来自 https://www.khronos.org/opengl/wiki/Shader_Compilation
+	OpenGLShader::OpenGLShader(const std::string& vertexSource, const std::string& fragmentSource)
+	{
+
+	
 
 	}
 
