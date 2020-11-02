@@ -17,7 +17,6 @@ void main()
 
 
 
-
 #type fragment
 #version 330 core
 

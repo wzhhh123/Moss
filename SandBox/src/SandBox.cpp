@@ -80,7 +80,8 @@ public:
 			}		
 		)";
 
-		m_Shader.reset(Moss::Shader::Create(vertexSrc, fragmentSrc));
+		//m_Shader.reset(Moss::Shader::Create(vertexSrc, fragmentSrc));
+		m_Shader.reset(Moss::Shader::Create("assets/shaders/Texture.glsl"));
 		//m_Texture = Moss::Texture2D::Create("assets/textures/face.png");
 		m_Texture = Moss::Texture2D::Create("assets/textures/moss.png");
 		//m_Texture = Moss::Texture2D::Create("assets/textures/wood.jpg");
