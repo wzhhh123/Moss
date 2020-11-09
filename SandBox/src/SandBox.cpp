@@ -80,16 +80,17 @@ public:
 			}		
 		)";
 
+		m_ShaderLibrary.Load("assets/shaders/Texture.glsl");
 		//m_Shader.reset(Moss::Shader::Create(vertexSrc, fragmentSrc));
-		m_Shader.reset(Moss::Shader::Create("assets/shaders/Texture.glsl"));
+		//m_Shader = Moss::Shader::Create("assets/shaders/Texture.glsl");
+		m_ShaderLibrary.Get("Texture");
 		//m_Texture = Moss::Texture2D::Create("assets/textures/face.png");
 		m_Texture = Moss::Texture2D::Create("assets/textures/moss.png");
 		//m_Texture = Moss::Texture2D::Create("assets/textures/wood.jpg");
 
-		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->Bind();
-		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->UploadUniformInt("u_Texture", 0);
+		//std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->Bind();
+		//std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->UploadUniformInt("u_Texture", 0);
 
-		Moss::Shader* sh = Moss::Shader::Create("assets/shaders/Texture.glsl");
 		
 	}
 
@@ -124,8 +125,10 @@ public:
 
 		m_Texture->Bind();
 
-		std::dynamic_pointer_cast<Moss::OpenGLShader>(m_Shader)->UploadUniformFloat3("u_Color", m_TriangleColor);
-		Moss::Renderer::Submit(m_VertexArray, m_Shader, transform);
+		auto shader = m_ShaderLibrary.Get("Texture");
+
+		std::dynamic_pointer_cast<Moss::OpenGLShader>(shader)->UploadUniformFloat3("u_Color", m_TriangleColor);
+		Moss::Renderer::Submit(m_VertexArray, shader, transform);
 
 
 		Moss::Renderer::EndScene();
@@ -170,10 +173,12 @@ public:
 
 
 private:
+	Moss::ShaderLibrary m_ShaderLibrary;
+
 	Moss::Ref<Moss::Texture2D>m_Texture;
 
 	Moss::Ref<Moss::VertexArray>m_VertexArray;
-	Moss::Ref<Moss::Shader> m_Shader;
+	//Moss::Ref<Moss::Shader> m_Shader;
 	Moss::OrthographicCamera m_Camera;
 
 	float m_CameraSpeed = 0.1f;

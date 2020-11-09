@@ -12,11 +12,13 @@ namespace Moss {
 	{
 
 	public:
-		OpenGLShader(const std::string& vertexSrc, const std::string& shaderSrc);
+		OpenGLShader(const std::string& name, const std::string& vertexSrc, const std::string& shaderSrc);
 		OpenGLShader(const std::string& filepath);
 
 		virtual void Bind() const override;
 		virtual void Unbind() const override;
+
+		virtual const std::string& GetName() const override { return m_Name; }
 
 		~OpenGLShader();
 
@@ -36,7 +38,7 @@ namespace Moss {
 		void Compile(const std::unordered_map<GLenum, std::string>& shaderSources);
 	private:
 		uint32_t m_RendererID; //maybe program id
-
+		std::string m_Name;
 	};
 }
 
